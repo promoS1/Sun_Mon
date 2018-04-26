@@ -96,3 +96,4 @@ var trait = function (req, res, query) {
 	res.end();
 };
 
+module.exports = trait;
