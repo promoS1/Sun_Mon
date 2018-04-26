@@ -29,6 +29,7 @@ var req_accepter = require("./req_accepter.js");
 var req_abandon_solo = require("./req_abandon_solo.js");
 var req_abandon_multi = require("./req_abandon_multi.js");
 var req_option = require("./req_option.js");
+var req_inscrire = require("./req_inscrire.js");
 
 var req_statique = require("./req_statique.js");
 var req_erreur = require("./req_erreur.js");
