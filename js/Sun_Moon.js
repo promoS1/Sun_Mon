@@ -117,6 +117,10 @@ var traite_requete = function (req, res) {
 			case '/req_erreur':
 				req_erreur(req, res, query);
 				break;
+			case '/req_inscrire':
+				req_erreur(req, res, query);
+				break;
+
 
 			default:
 				req_statique(req, res, pathname);
