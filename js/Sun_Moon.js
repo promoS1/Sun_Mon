@@ -115,11 +115,11 @@ var traite_requete = function (req, res) {
 			case '/req_accepter':
 				req_accepter(req, res, query);
 				break;
-			case '/req_erreur':
-				req_erreur(req, res, query);
-				break;
 			case '/req_inscrire':
 				req_inscrire(req, res, query);
+				break;
+			case '/req_erreur':
+				req_erreur(req, res, query);
 				break;
 
 
