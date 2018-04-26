@@ -118,7 +118,7 @@ var traite_requete = function (req, res) {
 				req_erreur(req, res, query);
 				break;
 			case '/req_inscrire':
-				req_erreur(req, res, query);
+				req_inscrire(req, res, query);
 				break;
 
 
