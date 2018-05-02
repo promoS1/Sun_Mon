@@ -63,9 +63,6 @@ var traite_requete = function (req, res) {
 			case '/req_menu':
 				req_menu(req, res, query);
 				break;
-			case '/req_deconnexion':
-				req_deconnexion(req, res, query);
-				break;
 			case '/req_lobby_solo':
 				req_lobby_solo(req, res, query);
 				break;
