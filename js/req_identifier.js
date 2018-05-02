@@ -34,7 +34,7 @@ var trait = function (req, res, query) {
 	}
 
 	// ON RENVOIT UNE PAGE HTML 
-
+	console.log(trouve);
 	if(trouve === false) {
 		// SI IDENTIFICATION INCORRECTE, ON REAFFICHE PAGE ACCUEIL AVEC ERREUR
 

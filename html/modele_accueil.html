@@ -17,9 +17,11 @@
 		Le but étant de remplir<br> l'intégralité de la grille de soleil.
 		En cliquant sur une case,<br> elle-même et les cases adjacentes inversent leur état.<br>
 		<div align=center> <h3>Connexion</h3> 
-			Identifiant: <input type="text" name="id"><br>
+		<form action="/req_identifier" method="GET">
+			Identifiant: <input type="text" name="pseudo"><br>
 			Mot de passe: <input type="text" name="mdp"><p>
 			<input type="submit" value="Connexion"><p>
+		</form><p>
 			Pas encore inscrit? 
 		<form action="/req_page_inscription" method="GET">
 			<input type="submit" value="Inscription">
