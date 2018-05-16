@@ -8,9 +8,22 @@
 </head>
 
 <body>
-	<input type="image" name="retour" value="menu" src="../ressource/fleche_retour.jpg" width=40 height=40/>
-	<div align=center><input type="submit" value="Commencer une partie 3x3"><p>
-	<input type="submit" value="Commencer une partie 4x4"></div>
+	<form action="/req_identifier" method="GET">
+	<input type="hidden" name="pseudo" value={pseudo}>
+	<input type="hidden" name="mdp" value={mdp}>
+	<input type="submit" value="Retour">
+	</form>
+	<div align=center>
+	<form action="/req_solo_3x3" method="GET">
+	<input type="hidden" name="pseudo" value={pseudo}">
+	<input type="hidden" name="mdp" value={mdp}">
+	<input type="submit" value="Commencer une partie 3x3">
+	</form><p>
+	<form action="/req_solo_4x4" method="GET">
+	<input type="hidden" name="pseudo" value={pseudo}>
+	<input type="hidden" name="mdp" value={mdp}>
+	<input type="submit" value="Commencer une partie 4x4">
+	</form></div>
 </body>
 
 </html>
