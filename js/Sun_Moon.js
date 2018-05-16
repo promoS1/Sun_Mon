@@ -32,6 +32,7 @@ var req_inscrire = require("./req_inscrire.js");
 var req_identifier = require("./req_identifier.js");
 var req_statique = require("./req_statique.js");
 var req_erreur = require("./req_erreur.js");
+var req_solo_3x3 = require("./req_solo_3x3.js");
 
 //-------------------------------------------------------------------------
 // FONCTION DE CALLBACK APPELLEE POUR CHAQUE REQUETE
@@ -119,6 +120,9 @@ var traite_requete = function (req, res) {
 				break;
 			case '/req_erreur':
 				req_erreur(req, res, query);
+				break;
+			case '/req_solo_3x3':
+				req_solo_3x3(req, res, query);
 				break;
 
 
