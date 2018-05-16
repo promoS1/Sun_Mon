@@ -12,37 +12,37 @@
 	<input type="submit" value="Déconnexion">
 	</form>
 	<form action="/req_option" method="GET">
-	<input type="hidden" name="pseudo" value="{pseudo}">
-	<input type="hidden" name="mdp" value="{mdp}">
+	<input type="hidden" name="pseudo" value={pseudo}>
+	<input type="hidden" name="mdp" value={mdp}>
 	<input type="submit" value="Options">
 	</form>
 	<form action="/req_profil" method="GET">
-	<input type="hidden" name="pseudo" value="{pseudo}">
-	<input type="hidden" name="mdp" value="{mdp}">
+	<input type="hidden" name="pseudo" value={pseudo}>
+	<input type="hidden" name="mdp" value={mdp}>
 	<input type="submit" value="Mon Profil">
 	</form>
 	<p>
 	<h2>Menu</h2>
 	<p>
 	<form action="/req_succes" method="GET">
-	<input type="hidden" name="pseudo" value="{pseudo}">
-	<input type="hidden" name="mdp" value="{mdp}">
+	<input type="hidden" name="pseudo" value={pseudo}>
+	<input type="hidden" name="mdp" value={mdp}>
 	<input type="submit" value="Succès">
 	</form>
 	<form action="/req_lobby_solo" method="GET">
-	<input type="hidden" name="pseudo" value="{pseudo}">
-	<input type="hidden" name="mdp" value="{mdp}">
+	<input type="hidden" name="pseudo" value={pseudo}>
+	<input type="hidden" name="mdp" value={mdp}>
 	<input type="submit" value="Lobby Solo">
 	</form>
 	<p>
-	<form action="req_leaderboard" method="GET">
-	<input type="hidden" name="pseudo" value="{pseudo}">
-	<input type="hidden" name="mdp" value="{mdp}">
+	<form action="/req_leaderboard" method="GET">
+	<input type="hidden" name="pseudo" value={pseudo}>
+	<input type="hidden" name="mdp" value={mdp}>
 	<input type="submit" value="Leaderboard">
 	</form>
-	<form action="req_lobby_multi" method="GET">
-	<input type="hidden" name="pseudo" value="{pseudo}">
-	<input type="hidden" name="mdp" value="{mdp}">	
+	<form action="/req_lobby_multi" method="GET">
+	<input type="hidden" name="pseudo" value={pseudo}>
+	<input type="hidden" name="mdp" value={mdp}>	
 	<input type="submit" value="Lobby Multijoueur">
 	</form>
 </body>
