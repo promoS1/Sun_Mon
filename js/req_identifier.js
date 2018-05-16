@@ -43,6 +43,7 @@ var trait = function (req, res, query) {
 		marqueurs = {};
 		marqueurs.erreur = "ERREUR : compte ou mot de passe incorrect";
 		marqueurs.pseudo = query.pseudo;
+		marqueurs.mdp = query.mdp;
 		page = page.supplant(marqueurs);
 
 	} else {
@@ -52,6 +53,7 @@ var trait = function (req, res, query) {
 
 		marqueurs = {};
 		marqueurs.pseudo = query.pseudo;
+		marqueurs.mdp = query.mdp;
 		page = page.supplant(marqueurs);
 	}
 
