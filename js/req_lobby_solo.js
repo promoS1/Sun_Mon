@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 
 var fs = require("fs");
 require('remedial');
@@ -21,7 +21,7 @@ var trait = function (req, res, query) {
 	marqueurs.mdp = query.mdp;
 
 	page = page.supplant(marqueurs);
-	res.writeHead(200, {'Content-Type': 'test/html'});
+	res.writeHead(200, {'Content-Type': 'text/html'});
 	res.write(page);
 	res.end();
 
