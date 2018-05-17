@@ -14,6 +14,7 @@ var trait = function (req, res, query) {
 	var mdp
 	var page;
 	var nom;
+	var list
 	//Aller a la page du jeu
 
 	page = fs.readFileSync('../html/modele_solo_3x3.html', 'utf-8');
@@ -25,9 +26,11 @@ var trait = function (req, res, query) {
 	marqueurs.mdp = query.mdp;
 	page = page.supplant(marqueurs)
 	nom = query.pseudo+"3x3";
-	var test = "[\""y"\",\""y"\",\""y"\",\""y"\",\""y"\",\"l\",\"l\",\"s\",\"s\"]"
+	var test = "[\"l\",\"l\",\"l\",\"l\",\"l\",\"l\",\"l\",\"s\",\"s\"]"
 	console.log("enrengistrer dans : "+nom+".json ===="+test);
 	fs.writeFileSync(nom+".json", [test], 'utf-8');
+	
+	
 	res.writeHead(200, {'Content-Type': 'text/html'});
 	res.write(page);
 	res.end();
