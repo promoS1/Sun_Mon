@@ -2,11 +2,6 @@
 var fs = require("fs");
 require('remedial');
 
-var aléa = function(){
-	var x;
-	x = Math.floor(Math.random() * 2)+1;
-	return x;
-}
 
 var trait = function (req, res, query) {
 	var marqueurs;
@@ -14,23 +9,126 @@ var trait = function (req, res, query) {
 	var mdp
 	var page;
 	var nom;
-	var list
+	var contenu;
+	var i;
+	var x;
+	var table = [];
+	var list = [];
 	//Aller a la page du jeu
 
 	page = fs.readFileSync('../html/modele_solo_3x3.html', 'utf-8');
 
 	marqueurs = {};
 	marqueurs.erreur = "";
-	var y=aléa()
 	marqueurs.pseudo = query.pseudo;
 	marqueurs.mdp = query.mdp;
-	page = page.supplant(marqueurs)
 	nom = query.pseudo+"3x3";
-	var test = "[\"l\",\"l\",\"l\",\"l\",\"l\",\"l\",\"l\",\"s\",\"s\"]"
-	console.log("enrengistrer dans : "+nom+".json ===="+test);
-	fs.writeFileSync(nom+".json", [test], 'utf-8');
 	
 	
+	
+	
+	///
+
+do {
+	for (i=1;i<=9;i++){
+		x = Math.floor(Math.random() * 2)+1;
+		if (x===1){
+			table.push("l");
+		} else if (x===2) {
+			table.push("s");
+		}
+	}
+	console.log(table);
+	table = ["s","s","s","s","s","s","s","s","s"];
+	console.log(table);
+}while(table === ["s","s","s","s","s","s","s","s","s"])
+
+	table = JSON.stringify(table);
+	console.log("enrengistrer dans : "+nom+".json ==="+table);
+	fs.writeFileSync(nom+".json", [table], 'utf-8');
+
+	
+	/////
+	
+	contenu = fs.readFileSync(nom+".json" , "UTF-8");
+	list = JSON.parse(contenu);
+	
+	
+		if(list[0] === "l") {
+			marqueurs.c1 = "\"Lune.png\"";
+			console.log("marqueurc"+1+" = "+marqueurs.c1);
+		} else {
+			marqueurs.c1 = "\"Soleil.png\"";
+			console.log("marqueurc"+1+" = "+marqueurs.c1);
+		}
+					
+		if(list[2] === "l") {
+			marqueurs.c2 = "\"Lune.png\"";
+			console.log("marqueurc"+2+" = "+marqueurs.c2);
+		} else {
+			marqueurs.c2 = "\"Soleil.png\"";
+			console.log("marqueurc"+2+" = "+marqueurs.c2);
+		}
+
+		if(list[3] === "l") {
+			marqueurs.c3 = "\"Lune.png\"";
+			console.log("marqueurc"+3+" = "+marqueurs.c3);
+		} else {
+			marqueurs.c3 = "\"Soleil.png\"";
+			console.log("marqueurc"+3+" = "+marqueurs.c3);
+		}
+
+		if(list[4] === "l") {
+			marqueurs.c4 = "\"Lune.png\"";
+			console.log("marqueurc"+4+" = "+marqueurs.c4);
+		} else {
+			marqueurs.c4 = "\"Soleil.png\"";
+			console.log("marqueurc"+4+" = "+marqueurs.c4);
+		}
+
+		if(list[5] === "l") {
+			marqueurs.c5 = "\"Lune.png\"";
+			console.log("marqueurc"+5+" = "+marqueurs.c5);
+		} else {
+			marqueurs.c5 = "\"Soleil.png\"";
+			console.log("marqueurc"+5+" = "+marqueurs.c5);
+		}				
+		if(list[6] === "l") {
+			marqueurs.c6 = "\"Lune.png\"";
+			console.log("marqueurc"+6+" = "+marqueurs.c6);
+		} else {
+			marqueurs.c6 = "\"Soleil.png\"";
+			console.log("marqueurc"+6+" = "+marqueurs.c6);
+		}
+
+		if(list[7] === "l") {
+			marqueurs.c7 = "\"Lune.png\"";
+			console.log("marqueurc"+7+" = "+marqueurs.c7);
+		} else {
+			marqueurs.c7 = "\"Soleil.png\"";
+			console.log("marqueurc"+7+" = "+marqueurs.c7);
+		}
+
+		if(list[8] === "l") {
+			marqueurs.c8 = "\"Lune.png\"";
+			console.log("marqueurc"+8+" = "+marqueurs.c8);
+		} else {
+			marqueurs.c8 = "\"Soleil.png\"";
+			console.log("marqueurc"+8+" = "+marqueurs.c8);
+		}
+
+		if(list[9] === "l") {
+			marqueurs.c9 = "\"Lune.png\"";
+			console.log("marqueurc"+9+" = "+marqueurs.c9);
+		} else {
+			marqueurs.c9 = "\"Soleil.png\"";
+			console.log("marqueurc"+9+" = "+marqueurs.c9);
+		}
+
+
+	
+	
+	page = page.supplant(marqueurs)
 	res.writeHead(200, {'Content-Type': 'text/html'});
 	res.write(page);
 	res.end();
