@@ -11,6 +11,7 @@
 	<form action="/req_connexion" method="GET">
 	<input type="submit" value="Déconnexion">
 	</form>
+	<h4>{pseudo}</h4>
 	<form action="/req_option" method="GET">
 	<input type="hidden" name="pseudo" value={pseudo}>
 	<input type="hidden" name="mdp" value={mdp}>
@@ -29,16 +30,16 @@
 	<input type="hidden" name="mdp" value={mdp}>
 	<input type="submit" value="Succès">
 	</form>
-	<form action="/req_lobby_solo" method="GET">
-	<input type="hidden" name="pseudo" value={pseudo}>
-	<input type="hidden" name="mdp" value={mdp}>
-	<input type="submit" value="Lobby Solo">
-	</form>
-	<p>
 	<form action="/req_leaderboard" method="GET">
 	<input type="hidden" name="pseudo" value={pseudo}>
 	<input type="hidden" name="mdp" value={mdp}>
 	<input type="submit" value="Leaderboard">
+	</form>
+	<p>
+	<form action="/req_lobby_solo" method="GET">
+	<input type="hidden" name="pseudo" value={pseudo}>
+	<input type="hidden" name="mdp" value={mdp}>
+	<input type="submit" value="Lobby Solo">
 	</form>
 	<form action="/req_lobby_multi" method="GET">
 	<input type="hidden" name="pseudo" value={pseudo}>

@@ -11,13 +11,29 @@
 	<input type="hidden" name="pseudo" value={pseudo}>
 	<input type="hidden" name="mdp" value={mdp}>
 	<input type="submit" value="Retour">
-	</form><p>
+	</form>
+	<h4>{pseudo}</h4>
 	<div align=center>
 	<p>
 	<h2>Lobby Multi</h2>
 	<p>
 	Choissisez un joueur et lancez lui un défi !
 	<p>
+	<table border="1">
+	<tr>
+		<td>Liste des joueurs</td>
+	</tr>
+	<tr><tr>
+		<td><input type="radio" name="choice" value="Player1">?????<br>
+		<input type="radio" name="choice" value="Player2">?????<br>
+		<input type="radio" name="choice" value="Player3">?????<br>
+		<input type="radio" name="choice" value="Player4">?????<br>
+		</td>
+	</tr>
+	<tr><tr>
+		<td><input type="submit" value="Défi 3x3"><input type="submit" value="Défi 4x4">
+	</tr>
+	</table>
 	</div>
 </body>
 

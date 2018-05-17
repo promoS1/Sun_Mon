@@ -8,20 +8,31 @@
 </head>
 
 <body>
-<form action="/req_identifier" method="GET">
-<input type="hidden" name="pseudo" value={pseudo}>
-<input type="hidden" name="mdp" value={mdp}>
-<input type="submit" value="Retour">
-</form>
-<h2 align=center>Succès</h2>
+	<form action="/req_identifier" method="GET">
+	<input type="hidden" name="pseudo" value={pseudo}>
+	<input type="hidden" name="mdp" value={mdp}>
+	<input type="submit" value="Retour">
+	</form>
+	<h4>{pseudo}</h4>
+	<div align=center>
 	<p>
-	Rapide : Finir une partie en moins de 10 secondes, Dévérouillé
+	<h2>Succès</h2>
+	</div>
 	<p>
-	Stratège : Finir une partie en moins de 10 coups, Vérouillé
-	<p>
-	Novice : Faire 10 parties, Dévérouillé
-	<p>
-	Vétéran : Faire 100 parties, Vérouillé
+	<table border="1">
+	<tr>
+		<td>Rapide : Finir une partie en moins de 10 secondes, Dévérouillé</td>
+	</tr>
+	<tr>
+		<td>Stratège : Finir une partie en moins de 10 coups, Vérouillé</td>
+	</tr>
+	<tr>
+		<td>Novice : Faire 10 parties, Dévérouillé</td>
+	</tr>
+	<tr>
+		<td>Vétéran : Faire 100 parties, Vérouillé</td>
+	</tr>
+	</table>
 </body>
 
 </html>
