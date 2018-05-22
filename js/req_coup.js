@@ -8,26 +8,29 @@ var trait = function (req, res, query) {
 	var pseudo;
 	var mdp;
 	var page;
-	var nom3x3;
 	var contenu;
 	var i;
 	var x;
 	var table = [];
 	var list = [];
-
+	var nom;
+	var nomStat = {};
 	page = fs.readFileSync('../html/modele_solo_3x3.html', 'utf-8');
 
 	marqueurs = [];
 	marqueurs.erreur = "";
 	marqueurs.pseudo = query.pseudo;
 	marqueurs.mdp = query.mdp;
-	nom3x3 = query.pseudo + "3x3";
+	nom = query.pseudo;
 	
-	contenu = fs.readFileSync(nom3x3 + ".json" , "UTF-8");
+	contenu = fs.readFileSync(nom+"Stat.json", "utf-8"); 
+	nomStat = JSON.parse(contenu);
+	nomStat.score += 1;
+	marqueurs.score = nomStat.score;
+	contenu = fs.readFileSync(nom+"3x3.json" , "UTF-8");
 	table = JSON.parse(contenu);
-	console.log ("briko=== "+table);
-			
-//	do {
+
+
 		if (query.cell === "1") {		
 			table[0] = !table[0];
 			table[1] = !table[1];
@@ -88,15 +91,22 @@ var trait = function (req, res, query) {
 			table[8] = !table[8];
 			console.log("9");
 		}
-	console.log("brika=== "+table)
+	
+	
 
-//	} while ();
 
 	table = JSON.stringify(table);
-	console.log("enregistrer dans : " + nom3x3 + ".json === " + table);
-	fs.writeFileSync(nom3x3 + ".json", [table], 'utf-8');
+	if (table === "[true,true,true,true,true,true,true,true,true]"){
+	
+	console.log("vosu aves aganger");
+	}
+	console.log("enregistrer dans : " + nom+ "3x3.json === " + table);
+	fs.writeFileSync(nom+"3x3.json", [table], 'utf-8');
+	
+	nomStat = JSON.stringify(nomStat);
+	fs.writeFileSync(nom+"Stat.json", nomStat, "utf-8")
 
-	contenu = fs.readFileSync(nom3x3 + ".json" , "UTF-8");
+	contenu = fs.readFileSync(nom+"3x3.json" , "UTF-8");
 	list = JSON.parse(contenu);
 	
 	

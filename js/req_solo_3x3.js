@@ -12,9 +12,10 @@ var trait = function (req, res, query) {
 	var contenu;
 	var i;
 	var x;
+	var nomStat = {};
 	var table = [];
 	var list = [];
-	var score ;
+	var nom;
 	//Aller a la page du jeu
 
 	page = fs.readFileSync('../html/modele_solo_3x3.html', 'utf-8');
@@ -23,9 +24,13 @@ var trait = function (req, res, query) {
 	marqueurs.erreur = "";
 	marqueurs.pseudo = query.pseudo;
 	marqueurs.mdp = query.mdp;
-	nom3x3 = query.pseudo+"3x3";
-
+	nom = query.pseudo;
+	
 	///////
+
+	nomStat.score = 0;
+	nomStat = JSON.stringify(nomStat);
+	fs.writeFileSync(nom+"Stat.json", nomStat, "utf-8");
 
 do {
 	table = [];
@@ -43,11 +48,11 @@ do {
 } while (table === "[true,true,true,true,true,true,true,true,true]")
 	
 	console.log("enrengistrer dans : "+nom3x3+".json ==="+table);
-	fs.writeFileSync(nom3x3+".json", [table], 'utf-8');
+	fs.writeFileSync(nom+"3x3.json", [table], 'utf-8');
 
 	/////
 	
-	contenu = fs.readFileSync(nom3x3+".json" , "UTF-8");
+	contenu = fs.readFileSync(nom+"3x3.json" , "UTF-8");
 	list = JSON.parse(contenu);
 	
 	
