@@ -25,62 +25,70 @@ var trait = function (req, res, query) {
 	
 	contenu = fs.readFileSync(nom3x3 + ".json" , "UTF-8");
 	table = JSON.parse(contenu);
-	console.log (table);
+	console.log ("briko=== "+table);
 			
-	table [0] = !table[0];
 //	do {
-		if (query.cell === 1) {		
-			table [0] = !table[0];
-			table [1] = !table[1];
-			table [3] = !table[3];
+		if (query.cell === "1") {		
+			table[0] = !table[0];
+			table[1] = !table[1];
+			table[3] = !table[3];
+			console.log("1");
 		}
-		if (query.cell === 2) {
-			table [0] = !table[0];
-			table [1] = !table[1];
-			table [2] = !table[2];
-			table [4] = !table[4];		
+		if (query.cell === "2") {
+			table[0] = !table[0];
+			table[1] = !table[1];
+			table[2] = !table[2];
+			table[4] = !table[4];		
+			console.log("2");
 		}
-		if (query.cell === 3) {
-			table [1] = !table[1];
-			table [2] = !table[2];
-			table [5] = !table[5];
+		if (query.cell === "3") {
+			table[1] = !table[1];
+			table[2] = !table[2];
+			table[5] = !table[5];
+			console.log("3");
 		}
-		if (query.cell === 4) {
-			table [0] = !table[0];
-			table [3] = !table[3];
-			table [5] = !table[5];
-			table [6] = !table[6];
+		if (query.cell === "4") {
+			table[0] = !table[0];
+			table[3] = !table[3];
+			table[4] = !table[4];
+			table[6] = !table[6];
+			console.log("4");
 		}
-		if (query.cell === 5) {
-			table [1] = !table[1];
-			table [3] = !table[3];
-			table [4] = !table[4];
-			table [5] = !table[5];
-			table [7] = !table[7];
+		if (query.cell === "5") {
+			table[1] = !table[1];
+			table[3] = !table[3];
+			table[4] = !table[4];
+			table[5] = !table[5];
+			table[7] = !table[7];
+			console.log("5");
 		}
-		if (query.cell === 6) {
-			table [2] = !table[2];
-			table [4] = !table[4];
-			table [5] = !table[5];
-			table [8] = !table[8];
+		if (query.cell === "6") {
+			table[2] = !table[2];
+			table[4] = !table[4];
+			table[5] = !table[5];
+			table[8] = !table[8];
+			console.log("6");
 		}
-		if (query.cell === 7) {
-			table [3] = !table[3];
-			table [6] = !table[6];
-			table [7] = !table[7];
+		if (query.cell === "7") {
+			table[3] = !table[3];
+			table[6] = !table[6];
+			table[7] = !table[7];
+			console.log("7");
 		}
-		if (query.cell === 8) {
-			table [4] = !table[4];
-			table [6] = !table[6];
-			table [7] = !table[7];
-			table [8] = !table[8];
+		if (query.cell === "8") {
+			table[4] = !table[4];
+			table[6] = !table[6];
+			table[7] = !table[7];
+			table[8] = !table[8];
+			console.log("8");
 		}
-		if (query.cell === 9) {
-			table [5] = !table[5];
-			table [7] = !table[7];
-			table [8] = !table[8];
+		if (query.cell === "9") {
+			table[5] = !table[5];
+			table[7] = !table[7];
+			table[8] = !table[8];
+			console.log("9");
 		}
-	
+	console.log("brika=== "+table)
 
 //	} while ();
 
@@ -89,7 +97,7 @@ var trait = function (req, res, query) {
 	fs.writeFileSync(nom3x3 + ".json", [table], 'utf-8');
 
 	contenu = fs.readFileSync(nom3x3 + ".json" , "UTF-8");
-
+	list = JSON.parse(contenu);
 	
 	
 	
@@ -164,6 +172,11 @@ var trait = function (req, res, query) {
 		marqueurs.c9 = "\"Soleil.png\"";
 		console.log("marqueurc"+9+" = "+marqueurs.c9);
 	}
+	
+	page = page.supplant(marqueurs);
+	res.writeHead(200, {'Content-Type': 'text/html'});
+	res.write(page);
+	res.end();
 };
 
 module.exports = trait;
