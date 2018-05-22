@@ -8,7 +8,7 @@ var trait = function (req, res, query) {
 	var pseudo;
 	var mdp
 	var page;
-	var nom;
+	var nom3x3;
 	var contenu;
 	var i;
 	var x;
@@ -24,32 +24,34 @@ var trait = function (req, res, query) {
 	marqueurs.pseudo = query.pseudo;
 	marqueurs.mdp = query.mdp;
 	nom3x3 = query.pseudo+"3x3";
-	nomStat = querypseudo+"Stat";
 
 	///////
 
+do {
 	table = [];
-
 	for (i=1;i<=9;i++){
 		x = Math.floor(Math.random() * 2)+1;
 		if (x===1){
-			table.push("l");
+			table.push(false);
 		} else if (x===2) {
-			table.push("s");
+			table.push(true);
 		}
 	}
-
+	
 	table = JSON.stringify(table);
+
+} while (table === "[true,true,true,true,true,true,true,true,true]")
+	
 	console.log("enrengistrer dans : "+nom3x3+".json ==="+table);
 	fs.writeFileSync(nom3x3+".json", [table], 'utf-8');
 
 	/////
 	
-	contenu = fs.readFileSync(nom+".json" , "UTF-8");
+	contenu = fs.readFileSync(nom3x3+".json" , "UTF-8");
 	list = JSON.parse(contenu);
 	
 	
-		if(list[0] === "l") {
+		if(list[0] === false) {
 			marqueurs.c1 = "\"Lune.png\"";
 			console.log("marqueurc"+1+" = "+marqueurs.c1);
 		} else {
@@ -57,7 +59,7 @@ var trait = function (req, res, query) {
 			console.log("marqueurc"+1+" = "+marqueurs.c1);
 		}
 					
-		if(list[1] === "l") {
+		if(list[1] === false) {
 			marqueurs.c2 = "\"Lune.png\"";
 			console.log("marqueurc"+2+" = "+marqueurs.c2);
 		} else {
@@ -65,7 +67,7 @@ var trait = function (req, res, query) {
 			console.log("marqueurc"+2+" = "+marqueurs.c2);
 		}
 
-		if(list[2] === "l") {
+		if(list[2] === false) {
 			marqueurs.c3 = "\"Lune.png\"";
 			console.log("marqueurc"+3+" = "+marqueurs.c3);
 		} else {
@@ -73,7 +75,7 @@ var trait = function (req, res, query) {
 			console.log("marqueurc"+3+" = "+marqueurs.c3);
 		}
 
-		if(list[3] === "l") {
+		if(list[3] === false) {
 			marqueurs.c4 = "\"Lune.png\"";
 			console.log("marqueurc"+4+" = "+marqueurs.c4);
 		} else {
@@ -81,14 +83,14 @@ var trait = function (req, res, query) {
 			console.log("marqueurc"+4+" = "+marqueurs.c4);
 		}
 
-		if(list[4] === "l") {
+		if(list[4] === false) {
 			marqueurs.c5 = "\"Lune.png\"";
 			console.log("marqueurc"+5+" = "+marqueurs.c5);
 		} else {
 			marqueurs.c5 = "\"Soleil.png\"";
 			console.log("marqueurc"+5+" = "+marqueurs.c5);
 		}				
-		if(list[5] === "l") {
+		if(list[5] === false) {
 			marqueurs.c6 = "\"Lune.png\"";
 			console.log("marqueurc"+6+" = "+marqueurs.c6);
 		} else {
@@ -96,7 +98,7 @@ var trait = function (req, res, query) {
 			console.log("marqueurc"+6+" = "+marqueurs.c6);
 		}
 
-		if(list[6] === "l") {
+		if(list[6] === false) {
 			marqueurs.c7 = "\"Lune.png\"";
 			console.log("marqueurc"+7+" = "+marqueurs.c7);
 		} else {
@@ -104,7 +106,7 @@ var trait = function (req, res, query) {
 			console.log("marqueurc"+7+" = "+marqueurs.c7);
 		}
 
-		if(list[7] === "l") {
+		if(list[7] === false) {
 			marqueurs.c8 = "\"Lune.png\"";
 			console.log("marqueurc"+8+" = "+marqueurs.c8);
 		} else {
@@ -112,7 +114,7 @@ var trait = function (req, res, query) {
 			console.log("marqueurc"+8+" = "+marqueurs.c8);
 		}
 
-		if(list[8] === "l") {
+		if(list[8] === false) {
 			marqueurs.c9 = "\"Lune.png\"";
 			console.log("marqueurc"+9+" = "+marqueurs.c9);
 		} else {
