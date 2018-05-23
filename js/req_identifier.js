@@ -14,7 +14,8 @@ var trait = function (req, res, query) {
 	var listeMembres;
 	var i;
 	var trouve;
-
+		
+	marqueurs = {};
 	marqueurs.abandon="";
 	// ON LIT LES COMPTES EXISTANTS
 
@@ -41,7 +42,6 @@ var trait = function (req, res, query) {
 
 		page = fs.readFileSync('../html/modele_accueil.html', 'utf-8');
 
-		marqueurs = {};
 		marqueurs.erreur = "ERREUR : compte ou mot de passe incorrect";
 		marqueurs.pseudo = query.pseudo;
 		marqueurs.mdp = query.mdp;
@@ -52,7 +52,6 @@ var trait = function (req, res, query) {
 
 		page = fs.readFileSync('../html/modele_menu.html', 'UTF-8');
 
-		marqueurs = {};
 		marqueurs.pseudo = query.pseudo;
 		marqueurs.mdp = query.mdp;
 		page = page.supplant(marqueurs);
