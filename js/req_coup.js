@@ -17,7 +17,7 @@ var trait = function (req, res, query) {
 	var nomStat = {};
 	page = fs.readFileSync('../html/modele_solo_3x3.html', 'utf-8');
 
-	marqueurs = [];
+	marqueurs = {};
 	marqueurs.erreur = "";
 	marqueurs.pseudo = query.pseudo;
 	marqueurs.mdp = query.mdp;
