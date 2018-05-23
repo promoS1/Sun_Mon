@@ -15,7 +15,6 @@ var trait = function (req, res, query) {
 	var list = [];
 	var contenu;
 
-	// ALLER A LA PAGE SUCCES
 	
 	page = fs.readFileSync('../html/modele_profil.html', 'utf-8');
 
@@ -55,7 +54,6 @@ var trait = function (req, res, query) {
 
 		page = fs.readFileSync('../html/modele_profil.html', 'utf-8');
 		
-		marqueurs = {};
 		marqueurs.erreur = "";
 		marqueurs.pseudo = query.change_pseudo;
 	}
