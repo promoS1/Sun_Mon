@@ -12,6 +12,8 @@ var trait = function (req, res, query){
 	
 	//ALLER A LA PAGE GAGNER
 
-	page = fs.readFileSync('');
+	page = fs.readFileSync('../html/modele_menu');
+
+	marqueurs.abandon="Vous avez abandonnez votr derniere partie";
 
 }
