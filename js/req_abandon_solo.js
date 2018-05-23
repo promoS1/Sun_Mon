@@ -14,6 +14,11 @@ var trait = function (req, res, query){
 
 	page = fs.readFileSync('../html/modele_menu');
 
-	marqueurs.abandon="Vous avez abandonnez votr derniere partie";
+	marqueurs.abandon="Vous avez abandonnez votre derniere partie";
 
+	//Commun a toutes les pages\\
+	marqueurs = {};
+	marqueur.pseudo = query.pseudo;
+	marqueurs.mdp = query.mdp;
+	//							\\
 }
