@@ -30,20 +30,17 @@ var trait = function (req, res, query) {
 	
 	trouve = false;
 	i = 0;
-	while(i<list.lenght && trouve === false) {
-		if(list[i].pseudo === query.pseudo) {
+	while(i<=list.length-1 && trouve === false) {
+		if(list[i].pseudo === query.change_pseudo) {
 			trouve = true;
 		}
 		i++;
 	}
-	
 	if(trouve === true) {
 		
 		page = fs.readFileSync('../html/modele_profil.html', 'utf-8');
 
-		marqueurs = {};
 		marqueurs.erreur = "ERREUR : ce pseudo existe déjà";
-	
 	} else {
 		
 		x = 0;
@@ -60,13 +57,12 @@ var trait = function (req, res, query) {
 		
 		marqueurs = {};
 		marqueurs.erreur = "";
-		}
-		marqueurs.mdp = query.mdp;
 		marqueurs.pseudo = query.change_pseudo;
-		page = page.supplant(marqueurs);
-		res.writeHead(200, {'Content-Type': 'text/html'});
-		res.write(page);
-		res.end();
+	}
+	page = page.supplant(marqueurs);
+	res.writeHead(200, {'Content-Type': 'text/html'});
+	res.write(page);
+	res.end();
 
 };
 
