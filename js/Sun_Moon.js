@@ -94,7 +94,7 @@ var traite_requete = function (req, res) {
 			case '/req_jouer_multi':
 				req_jouer_multi(req, res, query);
 				break;
-			case '/req_adandon_solo':
+			case '/req_abandon_solo':
 				req_abandon_solo(req, res, query);
 				break;
 			case '/req_abandon_multi':
