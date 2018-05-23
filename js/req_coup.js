@@ -97,8 +97,18 @@ var trait = function (req, res, query) {
 
 	table = JSON.stringify(table);
 	if (table === "[true,true,true,true,true,true,true,true,true]"){
-	 page = fs.readFileSync('../html/modele_win_solo.html', 'utf-8');
-	 
+		page = fs.readFileSync('../html/modele_win_solo.html', 'utf-8');	
+	
+		console.log(nomStat.total);
+		if(nomStat.total === undefined){
+			nomStat.total = [];	
+			nomStat = JSON.stringify(nomStat);
+			fs.writeFileSync("json/"+nom+"Stat.json", nomStat, "utf-8")
+			contenu = fs.readFileSync("json/"+nom+"Stat.json", "utf-8"); 
+			nomStat = JSON.parse(contenu);
+		}
+		
+		nomStat.total.push(nomStat.score);
 	}
 	fs.writeFileSync("json/"+nom+"3x3.json", [table], 'utf-8');
 	
