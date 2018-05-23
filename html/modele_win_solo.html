@@ -7,8 +7,15 @@
 </head>
 
 <body>
-	Score = {score}
-	<br><br><br><br>
+	<form action="/req_identifier" method"GET">
+	<input type="hidden" name="pseudo" value={pseudo}>
+	<input type="hidden" name=mdp" value={mdp}>
+	<input type="submit" value="Retour au menu">
+	</form>
+	<div align=center><h3>Vous avez gagné!</h3>
+	Nombre de coups = {score}
+	</div>
+	<p><p>
 	<table border="3" align=center>
 	<tr>
 		<td><img src="Soleil.png" height=150 width=150></td>
