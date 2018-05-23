@@ -97,7 +97,8 @@ var trait = function (req, res, query) {
 
 	table = JSON.stringify(table);
 	if (table === "[true,true,true,true,true,true,true,true,true]"){
-	page = fs.readFileSync('../html/modele_solo_3x3.html', 'utf-8');
+	 page = fs.readFileSync('../html/modele_win_solo.html', 'utf-8');
+	 
 	}
 	fs.writeFileSync("json/"+nom+"3x3.json", [table], 'utf-8');
 	
