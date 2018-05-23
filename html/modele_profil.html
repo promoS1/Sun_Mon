@@ -15,39 +15,35 @@
 		<h1 align=center>Mon Profil</h1>
 		<table border="1">
 		<tr>
+			<td></td>
+			<td>Victoire</td>
+			<td>Défaite</td>
+		</tr>
+		<tr>
 			<td>Solo</td>
+			<td>5</td>
+			<td>8</td>
+		</tr>
+		<tr>
 			<td>Multi</td>
+			<td>7</td>
+			<td>11</td>
 		</tr>
-		<tr><tr>
-			<td>3x3</td>
-			<td>3x3</td>
-		</tr>
-		<tr>
-			<td>Top coups ??</td>
-			<td>Top coups ??</td>
-		</tr>
-		<tr>
-			<td>Top temps ??s</td>
-			<td>Top temps ??s</td>
-		</tr>
-		<tr><tr>
-			<td>4x4</td>
-			<td>4x4</td>
-		</tr>
-		<tr>
-			<td>Top coups ??</td>
-			<td>Top coups ??</td>
-		</tr>
-		<tr>
-			<td>Top temps ??s</td>
-			<td>Top temps ??s</td>
-		</tr>
+
 		</table>
 		<p>Changer de pseudo<p>
+		<form action="/req_change_pseudo" method="GET">
 		<input type="text" name="change_pseudo">
+		<input type="hidden" name="mdp" value="{mdp}">
+		<input type="hidden" name="pseudo" value="{pseudo}">
 		<input type="submit" value="Confirmer">
+		</form>
 		<p>Changer de mot de passe<p>
+		<form action="/req_change_mdp" method="GET">
 		<input type="text" name="changer_mdp">
+		<input type="hidden" name="mdp" value="{mdp}">
+		<input type="hidden" name="pseudo" value="{pseudo}">
 		<input type="submit" value="Confirmer">
+		</form>
 		</body>
 </html>
