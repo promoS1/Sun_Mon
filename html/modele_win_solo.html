@@ -2,17 +2,12 @@
 <html>
 
 <head>
-	<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
-	<title>Solo 3x3</title>
+	<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+	<title>Solo win</title>
 </head>
 
 <body>
-	<form action="/req_identifier" method="GET">
-	<input type="hidden" name="pseudo" value={pseudo}>
-	<input type="hidden" name="mdp" value={mdp}>
-	<input type="submit" value="Retour">
-	</form><p>
-	Nombre de coups = {score}
+	Score = {score}
 	<br><br><br><br>
 	<table border="3" align=center>
 	<tr>
@@ -30,6 +25,8 @@
 		<td><a href="/req_coup?cell=8&pseudo={pseudo}&mdp={mdp}"><img src={c8} height=150 width=150></a></td>
 		<td><a href="/req_coup?cell=9&pseudo={pseudo}&mdp={mdp}"><img src={c9} height=150 width=150></a></td>
 	</tr>
-</body>
-
+</body>												
+		
 </html>
+
+
