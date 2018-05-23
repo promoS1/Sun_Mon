@@ -25,7 +25,7 @@ var trait = function (req, res, query) {
 	marqueurs.pseudo = query.pseudo;
 	marqueurs.mdp = query.mdp;
 	nom = query.pseudo;
-	
+	marqueurs.score=0;
 	///////
 
 	nomStat.score = 0;
