@@ -15,7 +15,7 @@ var trait = function (req, res, query) {
 	var i;
 	var trouve;
 
-	marqueur.abandon="";
+	marqueurs.abandon="";
 	// ON LIT LES COMPTES EXISTANTS
 
 	contenu_fichier = fs.readFileSync("membres.json", 'utf-8');    
