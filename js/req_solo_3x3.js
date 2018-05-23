@@ -30,7 +30,7 @@ var trait = function (req, res, query) {
 
 	nomStat.score = 0;
 	nomStat = JSON.stringify(nomStat);
-	fs.writeFileSync(nom+"Stat.json", nomStat, "utf-8");
+	fs.writeFileSync("json/"+nom+"Stat.json", nomStat, "utf-8");
 
 do {
 	table = [];
@@ -48,11 +48,11 @@ do {
 } while (table === "[true,true,true,true,true,true,true,true,true]")
 	
 	console.log("enrengistrer dans : "+nom3x3+".json ==="+table);
-	fs.writeFileSync(nom+"3x3.json", [table], 'utf-8');
+	fs.writeFileSync("json/"+nom+"3x3.json", [table], 'utf-8');
 
 	/////
 	
-	contenu = fs.readFileSync(nom+"3x3.json" , "UTF-8");
+	contenu = fs.readFileSync("json/"+nom+"3x3.json" , "UTF-8");
 	list = JSON.parse(contenu);
 	
 	
