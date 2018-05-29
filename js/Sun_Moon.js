@@ -12,13 +12,10 @@ var port;
 var req_connexion = require("./req_connexion.js");
 var req_page_inscription = require("./req_page_inscription.js");
 var req_menu = require("./req_menu.js");
-var req_lobby_solo = require("./req_lobby_solo.js");
 var req_lobby_multi = require("./req_lobby_multi.js");
 var req_leaderboard = require("./req_leaderboard.js");
 var req_succes = require("./req_succes.js");
 var req_profil = require("./req_profil.js");
-var req_jouer_solo = require("./req_jouer_solo.js");
-var req_jouer_multi = require("./req_jouer_multi.js");
 var req_demander_invite = require("./req_demander_invite.js");
 var req_coup = require("./req_coup.js");
 var req_change_pseudo = require("./req_change_pseudo.js");
@@ -33,6 +30,7 @@ var req_identifier = require("./req_identifier.js");
 var req_statique = require("./req_statique.js");
 var req_erreur = require("./req_erreur.js");
 var req_solo_3x3 = require("./req_solo_3x3.js");
+var req_multi_3x3 = require("./req_multi_3x3.js");
 
 //-------------------------------------------------------------------------
 // FONCTION DE CALLBACK APPELLEE POUR CHAQUE REQUETE
@@ -64,9 +62,6 @@ var traite_requete = function (req, res) {
 			case '/req_menu':
 				req_menu(req, res, query);
 				break;
-			case '/req_lobby_solo':
-				req_lobby_solo(req, res, query);
-				break;
 			case '/req_lobby_multi':
 				req_lobby_multi(req, res, query);
 				break;
@@ -87,12 +82,6 @@ var traite_requete = function (req, res) {
 				break;
 			case '/req_coup':
 				req_coup(req, res, query);
-				break;
-			case '/req_jouer_solo':
-				req_jouer_solo(req, res, query);
-				break;
-			case '/req_jouer_multi':
-				req_jouer_multi(req, res, query);
 				break;
 			case '/req_abandon_solo':
 				req_abandon_solo(req, res, query);
@@ -124,7 +113,9 @@ var traite_requete = function (req, res) {
 			case '/req_solo_3x3':
 				req_solo_3x3(req, res, query);
 				break;
-
+			case '/req_multi_3x3':
+				req_multi_3x3(req, res, query);
+				break;
 
 			default:
 				req_statique(req, res, pathname);
