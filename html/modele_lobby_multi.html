@@ -7,6 +7,7 @@
 </head>
 
 <body>
+	<META HTTP-EQUIV="refresh" CONTENT="2">
 	<form action="/req_identifier" method="GET">
 	<input type="hidden" name="pseudo" value={pseudo}>
 	<input type="hidden" name="mdp" value={mdp}>
@@ -24,10 +25,8 @@
 		<td>Liste des joueurs connectés</td>
 	</tr>
 	<tr><tr>
-		<td><input type="radio" name="choice" value="Player1">?????<br>
-		<input type="radio" name="choice" value="Player2">?????<br>
-		<input type="radio" name="choice" value="Player3">?????<br>
-		<input type="radio" name="choice" value="Player4">?????<br>
+		<td>
+		{demande}
 		</td>
 	</tr>
 	<tr><tr>
