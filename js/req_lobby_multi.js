@@ -15,7 +15,9 @@ var trait = function (req, res, query) {
 	var list= [];
 	var i;
 	var inscrit;
-	
+	var listInvite = [];
+	var listAccepter = {};
+	var hote;
 	
 	//ALLER A LA PAGE LOBBY MULTI
 
@@ -23,11 +25,14 @@ var trait = function (req, res, query) {
 
 	marqueurs = {};
 	marqueurs.erreurs ="";
-	
+	marqueurs.invitation = "";
+	marqueurs.refus = "";
 	marqueurs.pseudo = query.pseudo;
 	marqueurs.mdp = query.mdp;
 	nom = query.pseudo;
 	mdp = query.mdp;
+	
+		//inscription dadns liste des dispo
 	contenu = fs.readFileSync("json/lobbyMulti.json" , "utf-8")
 	list = JSON.parse(contenu);
 
@@ -56,13 +61,23 @@ var trait = function (req, res, query) {
 
 
 
-
+		//affichage des adversaires
 	defi =" </br>";		
 	for (i=0;i<list.length;i++){
-	defi += "<a href=req_demande_invite?pseudo="+nom+"&mdp="+mdp+"&cible="+list[i]+"><input type=\"button\" value=\""+list[i]+"\" /></a></br>";
+	defi += "<a href=\"req_demande_invite?pseudo="+nom+"&mdp="+mdp+"&cible="+list[i]+"\"><input type=\"button\" value=\""+list[i]+"\" /></a></br>";
 	}
 
+	//check liste invite
 
+	contenu = fs.readFileSync("json/invitation.json", "utf-8");
+	listInvite = JSON.parse(contenu);
+	for(i=0; i<listInvite.length; i++){
+			console.log("liste = "+listInvite[i]+"  acheminement = "+i);
+		if (nom === listInvite[i]){
+			hote = listInvite[i+1];
+			marqueurs.invitation = "invitation de "+hote+" recu <a href=\"req_accepter?pseudo="+nom+"&mdp="+mdp+"\"";
+		}
+	}
 
 	marqueurs.defi = defi
 	page = page.supplant(marqueurs);

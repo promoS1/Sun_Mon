@@ -16,6 +16,20 @@ var trait = function (req, res, query) {
 	var table = [];
 	var list = [];
 	var nom;
+	var listAccepter = {};
+	
+	pseudo = query.pseudo;
+
+	//Désincription de la liste des attentes
+
+	contenu = fs.readFileSync('json/accepter.json','utf-8');
+	listAccepter = JSON.parse(contenu);
+
+	delete listeAccepter[pseudo];
+
+	listAccepter = JSON.stringify(listAccepter);
+	fs.writeFileSync("json/accepter.json", listAccepter , "utf-8");
+	
 	//Aller a la page du jeu
 
 	page = fs.readFileSync('../html/modele_multi_3x3.html', 'utf-8');
