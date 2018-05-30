@@ -14,7 +14,10 @@ var trait = function (req, res, query) {
 	var listeMembres;
 	var i;
 	var trouve;
-		
+	var contenu;
+	var list = [];
+
+
 	marqueurs = {};
 	marqueurs.abandon="";
 	// ON LIT LES COMPTES EXISTANTS
@@ -56,6 +59,20 @@ var trait = function (req, res, query) {
 		marqueurs.mdp = query.mdp;
 		page = page.supplant(marqueurs);
 	}
+	
+	//SI ON SET DANS LOBBY MULTI 
+	
+	contenu = fs.readFileSync("json/lobbyMulti.json","utf-8");
+	list = JSON.parse(contenu);
+
+	for (i=0;i<list.length;i++){
+		if(list[i] === query.pseudo){
+			list.splice(i,1)
+		}
+	}
+	
+	list = JSON.stringify(list);
+	fs.writeFileSync("json/lobbyMulti.json", list , "utf-8");
 
 	res.writeHead(200, {'Content-Type': 'text/html'});
 	res.write(page);

@@ -27,7 +27,7 @@ var trait = function (req, res, query) {
 	marqueurs.pseudo = query.pseudo;
 	marqueurs.mdp = query.mdp;
 	nom = query.pseudo;
-
+	mdp = query.mdp;
 	contenu = fs.readFileSync("json/lobbyMulti.json" , "utf-8")
 	list = JSON.parse(contenu);
 
@@ -53,15 +53,13 @@ var trait = function (req, res, query) {
 
 
 
-	
-
 
 
 
 
 	defi =" </br>";		
 	for (i=0;i<list.length;i++){
-	defi += "<input type=\"button\" value="+list[i]+" onclick=\"req_demande?"+list[i]+"></br>"
+	defi += "<a href=req_demande_invite?pseudo="+nom+"&mdp="+mdp+"&cible="+list[i]+"><input type=\"button\" value=\""+list[i]+"\" /></a></br>";
 	}
 
 
