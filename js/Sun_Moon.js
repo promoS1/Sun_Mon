@@ -24,7 +24,6 @@ var req_refus = require("./req_refus.js");
 var req_accepter = require("./req_accepter.js");
 var req_abandon_solo = require("./req_abandon_solo.js");
 var req_abandon_multi = require("./req_abandon_multi.js");
-var req_option = require("./req_option.js");
 var req_inscrire = require("./req_inscrire.js");
 var req_identifier = require("./req_identifier.js");
 var req_statique = require("./req_statique.js");
@@ -73,9 +72,6 @@ var traite_requete = function (req, res) {
 				break;
 			case '/req_profil':
 				req_profil(req, res, query);
-				break;
-			case '/req_option':
-				req_option(req, res, query);
 				break;
 			case '/req_refus':
 				req_refus(req, res, query);
