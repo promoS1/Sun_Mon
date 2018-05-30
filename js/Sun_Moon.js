@@ -16,7 +16,7 @@ var req_lobby_multi = require("./req_lobby_multi.js");
 var req_leaderboard = require("./req_leaderboard.js");
 var req_succes = require("./req_succes.js");
 var req_profil = require("./req_profil.js");
-var req_demander_invite = require("./req_demander_invite.js");
+var req_demande_invite = require("./req_demande_invite.js");
 var req_coup = require("./req_coup.js");
 var req_change_pseudo = require("./req_change_pseudo.js");
 var req_change_mdp = require("./req_change_mdp.js");
@@ -85,8 +85,8 @@ var traite_requete = function (req, res) {
 			case '/req_abandon_multi':
 				req_abandon_multi(req, res, query);
 				break;
-			case '/req_demander_invite':
-				req_demander_invite(req, res, query);
+			case '/req_demande_invite':
+				req_demande_invite(req, res, query);
 				break;
 			case '/req_change_mdp':
 				req_change_mdp(req, res, query);
