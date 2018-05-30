@@ -12,25 +12,39 @@ var trait = function (req, res, query) {
 	var contenu;
 	var i;
 	var x;
-	var nomStat = {};
+	var multiStat = {};
 	var table = [];
 	var list = [];
 	var nom;
 	//Aller a la page du jeu
 
-	page = fs.readFileSync('../html/modele_solo_3x3.html', 'utf-8');
+	page = fs.readFileSync('../html/modele_multi_3x3.html', 'utf-8');
 
 	marqueurs = {};
 	marqueurs.erreur = "";
 	marqueurs.pseudo = query.pseudo;
 	marqueurs.mdp = query.mdp;
-	nom = query.pseudo;
-	marqueurs.score=0;
+	hote = query.hote;
+	invite = query.invite;
+	marqueurs.score = 0;
+	
+	if(query.pseudo === hote) {
+		marqueurs.adversaire = query.invite
+		console.log("Hote :" + query.pseudo);
+		console.log("Invite :" + query.invite);
+	} else if (query.pseudo === invite) {
+		marqueurs.adversaire = query.hote
+		console.log("Hote :" + query.hote);
+		console.log("Invite :" + query.pseudo);
+	}
+
 	///////
 
-	nomStat.score = 0;
-	nomStat = JSON.stringify(nomStat);
-	fs.writeFileSync("json/"+nom+"Stat.json", nomStat, "utf-8");
+	multiStat.gagne = false;
+	multiStat.hote = [];
+	multiStat.invite = [];
+	multiStat = JSON.stringify(multiStat);
+	fs.writeFileSync("json/"+hote+"VS"+invite+"Multi.json", multiStat, "utf-8");
 
 do {
 	table = [];
@@ -44,16 +58,19 @@ do {
 	}
 	
 	table = JSON.stringify(table);
+	multiStat.hote = table;
+	multiStat.invite = table;
 
 } while (table === "[true,true,true,true,true,true,true,true,true]")
 	
-	console.log("enrengistrer dans : "+nom3x3+".json ==="+table);
-	fs.writeFileSync("json/"+nom+"3x3.json", [table], 'utf-8');
+	console.log("Hote : "+ multiStat.hote);
+	console.log("Invite : "+ multiStat.invite);
+	fs.writeFileSync("json/"+hote+"VS"+invite+"Multi.json", multiStat, "utf-8");
 
 	/////
 	
-	contenu = fs.readFileSync("json/"+nom+"3x3.json" , "UTF-8");
-	list = JSON.parse(contenu);
+	contenu = fs.readFileSync("json/"+hote+"VS"+invite+"Multi.json" , "utf-8");
+	lsit = JSON.parse(contenu);
 	
 	
 		if(list[0] === false) {
