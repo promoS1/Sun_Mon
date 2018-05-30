@@ -7,12 +7,21 @@
 </head>
 
 <body>
+	<style>
+	body {
+	color:black;
+	background-image:url("Lune.jpg");
+	background-position:center;
+	background-repeat:no-repeat;
+	}
+	#orange { color: #FF8C00; }	
+	</style>
 	<form action="/req_identifier" method"GET">
 	<input type="hidden" name="pseudo" value={pseudo}>
 	<input type="hidden" name="mdp" value={mdp}>
 	<input type="submit" value="Retour au menu">
 	</form>
-	<div align=center><h3>Vous avez gagné!</h3>
+	<div align=center id="orange"><h3>Vous avez gagné!</h3>
 	Nombre de coups = {score}
 	</div>
 	<p><p>

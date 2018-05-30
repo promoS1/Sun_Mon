@@ -8,6 +8,14 @@
 </head>
 
 <body>
+	<style>
+	body {
+	color:white;
+	background-image:url("Lune.jpg");
+	background-position:center;
+	background-repeat:no-repeat;
+	}
+	</style>
 	<form action="/req_identifier" method="GET">
 	<input type="hidden" name="pseudo" value={pseudo}>
 	<input type="hidden" name="mdp" value={mdp}>
@@ -31,10 +39,6 @@
 	<tr>
 		<td>Novice : Faire 10 parties </td>
 		<td>{novice}</td>
-	</tr>
-	<tr>
-		<td>Vétéran : Faire 100 parties </td>
-		<td>{veteran}</td>
 	</tr>
 	</table>
 </body>

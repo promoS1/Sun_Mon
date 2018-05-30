@@ -7,20 +7,29 @@
 	<title>Accueil</title>
 </head>
 	<body>
-		<h1 align=center > Accueil</h1>
+		<style>
+		body {
+		background-image:url("Lune.jpg");
+		background-position:center;
+		background-repeat:no-repeat;
+		}
+		#blanc { color: #FFFFFF; }
+		#bleu { color: #1E90FF; }
+		#noir { color: #000000; }
+		</style>
+		<div id="noir"><h1 align=center>Accueil</h1></div>
 		<h3>Règles</h3><br>
-		Le jeu du soleil/lune est un casse tête. Il se base sur une grille de 3x3 dans laquelle chaque case contient un soleil ou une lune générés aléatoirement. Le but étant de remplir l'intégralité de la grille de soleil. En cliquant sur une case, elle-même et les cases adjacentes inversent leur état.
-		<div align=center> <h3>Connexion</h3> 
+		<div id="blanc"> Le jeu du soleil/lune est un casse tête. Il se base sur une grille de 3x3 dans laquelle chaque case contient un soleil ou une lune générés aléatoirement. Le but étant de remplir l'intégralité de la grille de soleil. En cliquant sur une case, elle-même et les cases adjacentes inversent leur état.
+		<div align=center><div id "blanc"><h3>Connexion</h3></div> 
+		<div id="blanc">
 		<form action="/req_identifier" method="GET">
 			Identifiant: <input type="text" name="pseudo"><br>
 			Mot de passe: <input type="password" name="mdp"><p>
+		</div>
 			<input type="submit" value="Connexion"><p>
 		</form>
-		<style>
-		#sign { color: #1E90FF; } 
-		</style>
 		<p>
-		<div id="sign"> Pas encore inscrit? </div>
+		<div id="bleu"> Pas encore inscrit? </div>
 		<p>	
 		<form action="/req_page_inscription" method="GET">
 			<input type="submit" value="Inscription">
