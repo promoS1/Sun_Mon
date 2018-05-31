@@ -2,63 +2,48 @@
 <html>
 
 <head>
-		<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
-	
+	<meta charset=utf-8' />
 	<title>Menu</title>
 </head>
 
 <body>
-	<style>
-	body {
-	color:white;
-	background-image:url("Lune.jpg");
-	background-position:center;
-	background-repeat:no-repeat;
-	}
-	</style>
 	<form action="/req_connexion" method="GET">
-	<input type="submit" value="Déconnexion">
+		<input type="submit" value="Déconnexion">
 	</form>
-	
-	<h4>{pseudo}</h4>
-		
+	<p>
+	{pseudo}
+	<p>
 	<form action="/req_profil" method="GET">
-	<input type="hidden" name="pseudo" value={pseudo}>
-	<input type="hidden" name="mdp" value={mdp}>
-	<input type="submit" value="Mon Profil">
+		<input type="hidden" name="pseudo" value={pseudo}>
+		<input type="hidden" name="mdp" value={mdp}>
+		<input type="submit" value="Mon Profil">
 	</form>
-	
 	<p>
-	
-	<h2>Menu</h2>
-	
+	Menu
 	<p>
-	
 	<form action="/req_succes" method="GET">
-	<input type="hidden" name="pseudo" value={pseudo}>
-	<input type="hidden" name="mdp" value={mdp}>
-	<input type="submit" value="Succès">
+		<input type="hidden" name="pseudo" value={pseudo}>
+		<input type="hidden" name="mdp" value={mdp}>
+		<input type="submit" value="Succès">
 	</form>
-	
 	<form action="/req_leaderboard" method="GET">
-	<input type="hidden" name="pseudo" value={pseudo}>
-	<input type="hidden" name="mdp" value={mdp}>
-	<input type="submit" value="Leaderboard">
+		<input type="hidden" name="pseudo" value={pseudo}>
+		<input type="hidden" name="mdp" value={mdp}>
+		<input type="submit" value="Leaderboard">
 	</form>
-	
 	<p>
-	
 	<form action="/req_solo_3x3" method="GET">
-	<input type="hidden" name="pseudo" value={pseudo}>
-	<input type="hidden" name="mdp" value={mdp}>
-	<input type="submit" value="Commencer une partie">
+		<input type="hidden" name="pseudo" value={pseudo}>
+		<input type="hidden" name="mdp" value={mdp}>
+		<input type="submit" value="Commencer une partie">
 	</form>
-	
 	<form action="/req_lobby_multi" method="GET">
-	<input type="hidden" name="pseudo" value={pseudo}>
-	<input type="hidden" name="mdp" value={mdp}>	
-	<input type="submit" value="Multijoueur">
+		<input type="hidden" name="pseudo" value={pseudo}>
+		<input type="hidden" name="mdp" value={mdp}>	
+		<input type="submit" value="Multijoueur">
 	</form>
-	<p>	
+	<p>
 	{abandon}
 </body>
+
+</html>

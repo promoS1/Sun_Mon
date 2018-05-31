@@ -2,23 +2,15 @@
 <html>
 
 <head>
-	<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+	<meta charset=utf-8'/>
 	<title>Solo 3x3</title>
 </head>
 
 <body>
-	<style>
-	body {
-	color:white;
-	background-image:url("Lune.jpg");
-	background-position:center;
-	background-repeat:no-repeat;
-	}
-	</style>
 	<form action="/req_abandon_solo" method="GET">
-	<input type="hidden" name="pseudo" value={pseudo}>
-	<input type="hidden" name="mdp" value={mdp}>
-	<input type="submit" value="Abandon">
+		<input type="hidden" name="pseudo" value={pseudo}>
+		<input type="hidden" name="mdp" value={mdp}>
+		<input type="submit" value="Abandon">
 	</form><p>
 	Nombre de coups = {score}
 	<br><br><br><br>
@@ -38,6 +30,7 @@
 		<td><a href="/req_coup?cell=8&pseudo={pseudo}&mdp={mdp}"><img src={c8} height=150 width=150></a></td>
 		<td><a href="/req_coup?cell=9&pseudo={pseudo}&mdp={mdp}"><img src={c9} height=150 width=150></a></td>
 	</tr>
+	</table>
 </body>
 
 </html>
