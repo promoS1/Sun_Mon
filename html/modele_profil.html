@@ -1,27 +1,25 @@
 <!DOCTYPE html>
 
 <html>
-	<head>  <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
-		<title>Mon Profil</title>
-	</head>
 
-	<body>
-		<style>
-		body {
-		color:white;
-		background-image:url("Lune.jpg");
-		background-position:center;
-		background-repeat:no-repeat;
-		}
-		</style>
+<head>  
+	<meta charset=utf-8' />
+	<title>Mon Profil</title>
+</head>
+
+<body>
 		<form action="/req_identifier" method="GET">
-		<input type="hidden" name="pseudo" value={pseudo}>
-		<input type="hidden" name="mdp" value={mdp}>
-		<input type="submit"  value="Retour">
+			<input type="hidden" name="pseudo" value={pseudo}>
+			<input type="hidden" name="mdp" value={mdp}>
+			<input type="submit"  value="Retour">
 		</form>
-		<h4>{pseudo}</h4>
-		<h4>{erreur}</h4>
-		<h1 align=center>Mon Profil</h1>
+		<p>
+		Mon profil
+		<p>
+		{pseudo}
+		<p>
+		{erreur}
+		<p>
 		<table border="1">
 		<tr>
 			<td></td>
@@ -44,19 +42,24 @@
 			<td>Solo</td>
 			<td><div align=center>{moyennecoups}</div></td>
 		</table>
-		<p>Changer de pseudo<p>
+		<p>
+		Changer de pseudo
+		<p>
 		<form action="/req_change_pseudo" method="GET">
-		<input type="text" name="change_pseudo">
-		<input type="hidden" name="mdp" value="{mdp}">
-		<input type="hidden" name="pseudo" value="{pseudo}">
-		<input type="submit" value="Confirmer">
+			<input type="text" name="change_pseudo">
+			<input type="hidden" name="mdp" value="{mdp}">
+			<input type="hidden" name="pseudo" value="{pseudo}">
+			<input type="submit" value="Confirmer">
 		</form>
-		<p>Changer de mot de passe<p>
+		<p>
+		Changer de mot de passe
+		<p>
 		<form action="/req_change_mdp" method="GET">
-		<input type="text" name="change_mdp">
-		<input type="hidden" name="mdp" value="{mdp}">
-		<input type="hidden" name="pseudo" value="{pseudo}">
-		<input type="submit" value="Confirmer">
+			<input type="text" name="change_mdp">
+			<input type="hidden" name="mdp" value="{mdp}">
+			<input type="hidden" name="pseudo" value="{pseudo}">
+			<input type="submit" value="Confirmer">
 		</form>
-		</body>
+</body>
+
 </html>

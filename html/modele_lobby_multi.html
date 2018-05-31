@@ -7,16 +7,15 @@
 </head>
 
 <body>
-	<META HTTP-EQUIV="refresh" CONTENT="2">
+	<meta http-equiv="refresh" content="2">
 	<form action="/req_identifier" method="GET">
-	<input type="hidden" name="pseudo" value={pseudo}>
-	<input type="hidden" name="mdp" value={mdp}>
-	<input type="submit" value="Retour">
+		<input type="hidden" name="pseudo" value={pseudo}>
+		<input type="hidden" name="mdp" value={mdp}>
+		<input type="submit" value="Retour">
 	</form>
-	<h4>{pseudo}</h4>
-	<div align=center>
+	{pseudo}
 	<p>
-	<h2>Multijoueur</h2>
+	Multijoueur
 	<p>
 	Choissisez un joueur et lancez lui un défi !
 	<p>
@@ -32,9 +31,10 @@
 	<tr><tr>
 	</tr>
 	</table>
-	{invitation}</br>
+	<p>
+	{invitation}
+	<p>
 	{refus}
-	</div>
 </body>
 
 </html>

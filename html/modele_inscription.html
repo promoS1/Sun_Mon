@@ -3,33 +3,24 @@
 <html>
 
 <head>	
-<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
-	
-
+	<meta charset=utf-8' />
 	<title>Inscription</title>
 </head>
 
 <body>
-	<style>
-	body {
-	color:white;
-	background-image:url("Lune.jpg");
-	background-position:center;
-	background-repeat:no-repeat;
-	margin-top: 70px;
-	}
-	</style>
 	<form action="/req_connexion" method="GET">
-	<input type="submit" value="Retour">
+		<input type="submit" value="Retour">
 	</form>
-	<h2 align=center>Inscription</h2>
-	<p color=red >{erreur}</p>
+	<p>
+	Inscription
+	<p>
+	{erreur}
+	<p>
 	<form action="/req_inscrire" method="GET">
-	<div align=center>Identifiant : <input type="text" name="pseudo" value={pseudo}><br>
-	Mot de passe : <input type="password" name="mdp"><br>
-	Mot de passe : <input type="password" name="v_mdp"><p>
-	<input type="submit" value="Valider"></div>
-	</p>
+		Identifiant : <input type="text" name="pseudo" value={pseudo}><br>
+		Mot de passe : <input type="password" name="mdp"><br>
+		Mot de passe : <input type="password" name="v_mdp"><p>
+		<input type="submit" value="Valider">
 	</form>
 </body>
 
