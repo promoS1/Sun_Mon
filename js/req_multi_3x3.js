@@ -31,10 +31,19 @@ var trait = function (req, res, query) {
 	marqueurs.pseudo = query.pseudo;
 	marqueurs.mdp = query.mdp;
 	hote = query.hote;
-	hote = hote.substr(1);
+	try {hote = hote.substr(1);
+	}finally{}
 	invite = query.invite;
 	marqueurs.score = 0;
 	
+		//Inscription dans listeAccepter
+	contenu = fs.readFileSync("json/accepter.json", "utf-8");
+	listAccepter = JSON.parse(contenu);
+
+	listAccepter[pseudo]=true;
+
+	listAccepter=JSON.stringify(listAccepter);
+	fs.writeFileSync("json/accepter.json",listAccepter , "utf-8");
 	if(query.pseudo === hote) {
 		marqueurs.adversaire = query.invite
 		console.log("Hote :" + query.pseudo);

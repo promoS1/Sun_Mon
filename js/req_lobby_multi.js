@@ -66,7 +66,7 @@ var trait = function (req, res, query) {
 	defi =" </br>";		
 	for (i=0;i<list.length;i++){
 		if(nom !== list[i]){
-			defi += "<a href=\"req_demande_invite?pseudo="+nom+"&mdp="+mdp+"&invite="+list[i]+"\"><input type=\"button\" value=\""+list[i]+"\" /></a></br>";
+			defi += "<a href=\"req_demande_invite?pseudo="+nom+"&mdp="+mdp+"&invite="+list[i]+"&hote="+nom+"\"><input type=\"button\" value=\""+list[i]+"\" /></a></br>";
 		}
 	}
 

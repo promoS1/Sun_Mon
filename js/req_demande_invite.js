@@ -19,7 +19,6 @@ var trait = function (req, res, query){
 	var check;
 	var req_multi_3x3 = require("./req_multi_3x3.js");
 	marqueurs = {};
-	
 	pseudo = query.pseudo;
 	marqueurs.pseudo = query.pseudo
 	hote = marqueurs.pseudo;
@@ -67,7 +66,6 @@ var trait = function (req, res, query){
 
 	//renvoi vers la parti si l'invite a accepter
 	
-	
 	contenu = fs.readFileSync("json/accepter.json" , "utf-8");
 	listAccepter = JSON.parse(contenu);
 	
@@ -75,12 +73,12 @@ var trait = function (req, res, query){
 			if (listAccepter[invite] === true){
 				
 				//Desincription de la liste des attentes
-				contenu = fs.readFileSyc('json/accepter.json','utf-8');
+				contenu = fs.readFileSync('json/accepter.json','utf-8');
 				listAccepter = JSON.parse(contenu);
 
-				delete listeAccepter[invite];
+				delete listAccepter[invite];
 
-				listAccepter = JSONstringify(listAccepter);
+				listAccepter = JSON.stringify(listAccepter);
 				fs.writeFileSync("json/accepter.json", listAccepter, 'utf-8');
 					
 				
@@ -104,6 +102,7 @@ var trait = function (req, res, query){
 			if(listInvite[i] === invite){
 				listInvite.splice(i,2);
 				req_multi_3x3(req, res, query);
+				return;
 			}
 		}
 	}
