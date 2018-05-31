@@ -58,7 +58,7 @@ var trait = function (req, res, query){
 
 			console.log(pseudo + " invite "+ invite+" et trouve = "+trouve);
 		listInvite.push(invite);
-		listInvite.push("."+pseudo);
+		listInvite.push(pseudo);
 	}
 
 	listInvite = JSON.stringify(listInvite);
@@ -69,15 +69,15 @@ var trait = function (req, res, query){
 	contenu = fs.readFileSync("json/accepter.json" , "utf-8");
 	listAccepter = JSON.parse(contenu);
 	
+				console.log ("cbt accepter donc list accepter = "+listAccepter);
 		
 			if (listAccepter[invite] === true){
 				
 				//Desincription de la liste des attentes
-				contenu = fs.readFileSync('json/accepter.json','utf-8');
-				listAccepter = JSON.parse(contenu);
-
+				console.log ("cbt accepter donc list accepter = "+listAccepter);
 				delete listAccepter[invite];
 
+				console.log ("cbt accepter donc list accepter = "+listAccepter);
 				listAccepter = JSON.stringify(listAccepter);
 				fs.writeFileSync("json/accepter.json", listAccepter, 'utf-8');
 					
@@ -109,8 +109,6 @@ var trait = function (req, res, query){
 	listInvite = JSON.stringify(listInvite);
 	listInvite = fs.writeFileSync("json/invitation.json", listInvite , "utf-8"); 
 	
-	//listAccepter = JSON.stringify(listAccepter);
-	//listAccepter = fs.writeFileSync("json/accepter.json", listAccepter , "utf-8"); 
 
 	page = page.supplant(marqueurs);
 	res.writeHead(200, {'Content-Type': 'text/html'});

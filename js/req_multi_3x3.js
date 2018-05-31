@@ -31,8 +31,6 @@ var trait = function (req, res, query) {
 	marqueurs.pseudo = query.pseudo;
 	marqueurs.mdp = query.mdp;
 	hote = query.hote;
-	try {hote = hote.substr(1);
-	}finally{}
 	invite = query.invite;
 	marqueurs.score = 0;
 	
