@@ -18,7 +18,8 @@ var trait = function (req, res, query) {
 	var listInvite = [];
 	var listAccepter = {};
 	var hote;
-	
+	var invite;
+
 	//ALLER A LA PAGE LOBBY MULTI
 
 	page = fs.readFileSync ('../html/modele_lobby_multi.html', 'utf-8');
@@ -64,7 +65,9 @@ var trait = function (req, res, query) {
 		//affichage des adversaires
 	defi =" </br>";		
 	for (i=0;i<list.length;i++){
-	defi += "<a href=\"req_demande_invite?pseudo="+nom+"&mdp="+mdp+"&cible="+list[i]+"\"><input type=\"button\" value=\""+list[i]+"\" /></a></br>";
+		if(nom !== list[i]){
+			defi += "<a href=\"req_demande_invite?pseudo="+nom+"&mdp="+mdp+"&invite="+list[i]+"\"><input type=\"button\" value=\""+list[i]+"\" /></a></br>";
+		}
 	}
 
 	//check liste invite
@@ -75,7 +78,7 @@ var trait = function (req, res, query) {
 			console.log("liste = "+listInvite[i]+"  acheminement = "+i);
 		if (nom === listInvite[i]){
 			hote = listInvite[i+1];
-			marqueurs.invitation = "invitation de "+hote+" recu <a href=\"req_accepter?pseudo="+nom+"&mdp="+mdp+"\"";
+			marqueurs.invitation = "invitation de "+hote+" recu <a href=\"req_multi_3x3?pseudo="+nom+"&mdp="+mdp+"&hote="+hote+"&invite="+nom+"\"><input type=\"button\" value=\"Accepter\"/></a></br> <a href=\"req_refus?pseudo="+nom+"&mdp="+mdp+"&hote="+hote+"&invite="+nom+"\"><input type=\"button\" value=\"Refuser\"/></a></br>";
 		}
 	}
 

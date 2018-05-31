@@ -17,19 +17,11 @@ var trait = function (req, res, query) {
 	var list = [];
 	var nom;
 	var listAccepter = {};
-	
+	var hote;
+	var invite;
 	pseudo = query.pseudo;
 
-	//Désincription de la liste des attentes
 
-	contenu = fs.readFileSync('json/accepter.json','utf-8');
-	listAccepter = JSON.parse(contenu);
-
-	delete listeAccepter[pseudo];
-
-	listAccepter = JSON.stringify(listAccepter);
-	fs.writeFileSync("json/accepter.json", listAccepter , "utf-8");
-	
 	//Aller a la page du jeu
 
 	page = fs.readFileSync('../html/modele_multi_3x3.html', 'utf-8');
@@ -39,6 +31,7 @@ var trait = function (req, res, query) {
 	marqueurs.pseudo = query.pseudo;
 	marqueurs.mdp = query.mdp;
 	hote = query.hote;
+	hote = hote.substr(1);
 	invite = query.invite;
 	marqueurs.score = 0;
 	
@@ -55,11 +48,12 @@ var trait = function (req, res, query) {
 	///////
 
 	multiStat.gagne = false;
-	multiStat.hote = [];
-	multiStat.invite = [];
+	multiStat[hote] = [];
+	multiStat[invite] = [];
 	multiStat = JSON.stringify(multiStat);
 	fs.writeFileSync("json/"+hote+"VS"+invite+"Multi.json", multiStat, "utf-8");
-
+	contenu = fs.readFileSync("json/"+hote+"VS"+invite+"Multi.json", "utf-8");
+	multiStat = JSON.parse(contenu);
 do {
 	table = [];
 	for (i=1;i<=9;i++){
@@ -71,20 +65,21 @@ do {
 		}
 	}
 	
-	table = JSON.stringify(table);
-	multiStat.hote = table;
-	multiStat.invite = table;
+	multiStat[hote] = table;
+	multiStat[invite] = table;
 
+	table = JSON.stringify(table);
 } while (table === "[true,true,true,true,true,true,true,true,true]")
 	
 	console.log("Hote : "+ multiStat.hote);
 	console.log("Invite : "+ multiStat.invite);
+	multiStat = JSON.stringify(multiStat);
 	fs.writeFileSync("json/"+hote+"VS"+invite+"Multi.json", multiStat, "utf-8");
 
 	/////
 	
 	contenu = fs.readFileSync("json/"+hote+"VS"+invite+"Multi.json" , "utf-8");
-	lsit = JSON.parse(contenu);
+	list = JSON.parse(contenu);
 	
 	
 		if(list[0] === false) {

@@ -17,13 +17,14 @@ var trait = function (req, res, query){
 	var trouve;
 	var page;
 	var check;
+	var req_multi_3x3 = require("./req_multi_3x3.js");
 	marqueurs = {};
 	
 	pseudo = query.pseudo;
 	marqueurs.pseudo = query.pseudo
 	hote = marqueurs.pseudo;
 	marqueurs.mdp = query.mdp
-	marqueurs.invite = query.cible
+	marqueurs.invite = query.invite
 	invite = marqueurs.invite;
 
 	page = fs.readFileSync ('../html/modele_demande_hote.html', 'utf-8');
@@ -46,15 +47,17 @@ var trait = function (req, res, query){
 	contenu = fs.readFileSync("json/invitation.json" , "utf-8");
 	listInvite = JSON.parse(contenu);
 	
-	 console.log(pseudo+" demande " +invite);	
+	console.log(pseudo+" demande " +invite);	
 	trouve = false;
 	for (i=0; i<listInvite.length;i++){
 		if(listInvite[i] === invite){
 			trouve = true
+			console.log(pseudo + " invite "+ invite+" et trouve = "+trouve);
 		}
 	}	
 	if (trouve === false){
 
+			console.log(pseudo + " invite "+ invite+" et trouve = "+trouve);
 		listInvite.push(invite);
 		listInvite.push("."+pseudo);
 	}
@@ -70,6 +73,17 @@ var trait = function (req, res, query){
 	
 		
 			if (listAccepter[invite] === true){
+				
+				//Desincription de la liste des attentes
+				contenu = fs.readFileSyc('json/accepter.json','utf-8');
+				listAccepter = JSON.parse(contenu);
+
+				delete listeAccepter[invite];
+
+				listAccepter = JSONstringify(listAccepter);
+				fs.writeFileSync("json/accepter.json", listAccepter, 'utf-8');
+					
+				
 				console.log("combat accepter");	
 				check = true;
 				page = fs.readFileSync('../html/modele_transition_accepter.html','utf-8');
@@ -89,6 +103,7 @@ var trait = function (req, res, query){
 		for (i=0; i<listInvite.length;i++){
 			if(listInvite[i] === invite){
 				listInvite.splice(i,2);
+				req_multi_3x3(req, res, query);
 			}
 		}
 	}
