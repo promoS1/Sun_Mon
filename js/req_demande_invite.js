@@ -25,7 +25,8 @@ var trait = function (req, res, query){
 	marqueurs.mdp = query.mdp
 	marqueurs.invite = query.invite
 	invite = marqueurs.invite;
-
+	marqueurs.hote = query.hote;
+	marqueurs.invite = query.invite
 	page = fs.readFileSync ('html/modele_demande_hote.html', 'utf-8');
 
 	//quitte la liste du lobby

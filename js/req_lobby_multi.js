@@ -32,7 +32,8 @@ var trait = function (req, res, query) {
 	marqueurs.mdp = query.mdp;
 	nom = query.pseudo;
 	mdp = query.mdp;
-	
+	marqueurs.invite = query.invite;
+	marqueurs.hote = query.hote;
 		//inscription dadns liste des dispo
 	contenu = fs.readFileSync("data/lobbyMulti.json" , "utf-8")
 	list = JSON.parse(contenu);
