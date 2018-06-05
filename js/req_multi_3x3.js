@@ -33,8 +33,22 @@ var trait = function (req, res, query) {
 	hote = query.hote;
 	invite = query.invite;
 	marqueurs.score = 0;
+		//désincription de lobby multi
+
+		
+	contenu = fs.readFileSync("data/lobbyMulti.json", "utf-8");
+	list = JSON.parse(contenu);
+		
+	for (i=0;i<list.length;i++){
+		if (list[i] === pseudo){
+			list.splice(i,1);
+		}
+	}
 	
-		//Inscription dans listeAccepter
+	list = JSON.stringify(list);
+	fs.writeFileSync("data/lobbyMulti.json" ,list ,"utf-8");
+
+	if(invite===pseudo){
 	contenu = fs.readFileSync("data/accepter.json", "utf-8");
 	listAccepter = JSON.parse(contenu);
 
@@ -42,6 +56,8 @@ var trait = function (req, res, query) {
 
 	listAccepter=JSON.stringify(listAccepter);
 	fs.writeFileSync("data/accepter.json",listAccepter , "utf-8");
+	}
+
 	if(query.pseudo === hote) {
 		marqueurs.adversaire = query.invite
 		console.log("Hote :" + query.pseudo);
@@ -54,41 +70,42 @@ var trait = function (req, res, query) {
 
 	///////
 
+if (pseudo === invite){
 	multiStat.gagne = false;
 	multiStat[hote] = [];
 	multiStat[invite] = [];
+	
 	multiStat = JSON.stringify(multiStat);
 	fs.writeFileSync("data/"+hote+"VS"+invite+"Multi.json", multiStat, "utf-8");
+
 	contenu = fs.readFileSync("data/"+hote+"VS"+invite+"Multi.json", "utf-8");
 	multiStat = JSON.parse(contenu);
-do {
-	table = [];
-	for (i=1;i<=9;i++){
-		x = Math.floor(Math.random() * 2)+1;
-		if (x===1){
-			table.push(false);
-		} else if (x===2) {
+	do {
+		table = [];
+		for (i=1;i<=9;i++){
+			x = Math.floor(Math.random() * 2)+1;
+			if (x===1){
+				table.push(false);
+			} else if (x===2) {
 			table.push(true);
+			}
 		}
-	}
+		multiStat[hote] = table;
+		multiStat[invite] = table;
+		table = JSON.stringify(table);
+	} while (table === "[true,true,true,true,true,true,true,true,true]")
 	
-	multiStat[hote] = table;
-	multiStat[invite] = table;
-
-	table = JSON.stringify(table);
-} while (table === "[true,true,true,true,true,true,true,true,true]")
-	
-	console.log("Hote : "+ multiStat.hote);
-	console.log("Invite : "+ multiStat.invite);
+	console.log("Hote : "+ multiStat[hote]);
+	console.log("Invite : "+ multiStat[invite]);
 	multiStat = JSON.stringify(multiStat);
 	fs.writeFileSync("data/"+hote+"VS"+invite+"Multi.json", multiStat, "utf-8");
-
+}
 	/////
 	
 	contenu = fs.readFileSync("data/"+hote+"VS"+invite+"Multi.json" , "utf-8");
-	list = JSON.parse(contenu);
+	multiStat = JSON.parse(contenu);
 	
-	
+	list = multiStat[pseudo];
 		if(list[0] === false) {
 			marqueurs.c1 = "Lune.png";
 			console.log("marqueurc"+1+" = "+marqueurs.c1);

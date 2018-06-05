@@ -69,22 +69,25 @@ var trait = function (req, res, query){
 	contenu = fs.readFileSync("data/accepter.json" , "utf-8");
 	listAccepter = JSON.parse(contenu);
 	
-				console.log ("cbt accepter donc list accepter = "+listAccepter);
+				//Desincription de la liste des attentes
 		
 			if (listAccepter[invite] === true){
 				
-				//Desincription de la liste des attentes
+
+									
+				
+				console.log("combat accepter");	
+				
+				check = true;
+				
+				
 				console.log ("cbt accepter donc list accepter = "+listAccepter);
-				delete listAccepter[invite];
+				listAccepter[invite] = 0;
 
 				console.log ("cbt accepter donc list accepter = "+listAccepter);
 				listAccepter = JSON.stringify(listAccepter);
 				fs.writeFileSync("data/accepter.json", listAccepter, 'utf-8');
-					
-				
-				console.log("combat accepter");	
-				check = true;
-				page = fs.readFileSync('html/modele_transition_accepter.html','utf-8');
+
 			}else if (listAccepter[invite] === false){
 				console.log("combat refusé");	
 				check = true;
@@ -101,13 +104,13 @@ var trait = function (req, res, query){
 		for (i=0; i<listInvite.length;i++){
 			if(listInvite[i] === invite){
 				listInvite.splice(i,2);
+				listInvite = JSON.stringify(listInvite);
+				listInvite = fs.writeFileSync("data/invitation.json", listInvite , "utf-8"); 
 				req_multi_3x3(req, res, query);
 				return;
 			}
 		}
 	}
-	listInvite = JSON.stringify(listInvite);
-	listInvite = fs.writeFileSync("data/invitation.json", listInvite , "utf-8"); 
 	
 
 	page = page.supplant(marqueurs);
