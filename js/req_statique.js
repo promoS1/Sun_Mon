@@ -14,7 +14,7 @@ var req_statique = function (req, res, query) {
 
 	// FABRIQUE LE PATH ABSOLU DU FICHIER DEMANDE
 
-	file = __dirname + file;
+	file = __dirname + "/.." + file;
 
 	// AJUSTE LE TYPE EN FONCTION DE L'EXTENSION
 

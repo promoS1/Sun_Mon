@@ -16,7 +16,7 @@ var trait = function (req, res, query) {
 	var contenu;
 
 	
-	page = fs.readFileSync('../html/modele_profil.html', 'utf-8');
+	page = fs.readFileSync('html/modele_profil.html', 'utf-8');
 
 	marqueurs = {};
 	marqueurs.erreur = "";
@@ -24,7 +24,7 @@ var trait = function (req, res, query) {
 	marqueurs.pseudo = query.pseudo;
 	marqueurs.mdp = query.mdp;
 
-	contenu = fs.readFileSync("membres.json", 'utf-8');
+	contenu = fs.readFileSync("data/membres.json", 'utf-8');
 	list = JSON.parse(contenu);
 	
 	trouve = false;
@@ -37,7 +37,7 @@ var trait = function (req, res, query) {
 	}
 	if(trouve === true) {
 		
-		page = fs.readFileSync('../html/modele_profil.html', 'utf-8');
+		page = fs.readFileSync('html/modele_profil.html', 'utf-8');
 
 		marqueurs.erreur = "ERREUR : ce pseudo existe déjà";
 	} else {
@@ -50,9 +50,9 @@ var trait = function (req, res, query) {
 		list[x].pseudo = query.change_pseudo;
 
 		contenu = JSON.stringify(list);
-		fs.writeFileSync("membres.json", contenu, 'utf-8');
+		fs.writeFileSync("data/membres.json", contenu, 'utf-8');
 
-		page = fs.readFileSync('../html/modele_profil.html', 'utf-8');
+		page = fs.readFileSync('html/modele_profil.html', 'utf-8');
 		
 		marqueurs.erreur = "";
 		marqueurs.pseudo = query.change_pseudo;

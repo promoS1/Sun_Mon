@@ -22,7 +22,7 @@ var trait = function (req, res, query) {
 	marqueurs.abandon="";
 	// ON LIT LES COMPTES EXISTANTS
 
-	contenu_fichier = fs.readFileSync("membres.json", 'utf-8');    
+	contenu_fichier = fs.readFileSync("data/membres.json", 'utf-8');    
 	listeMembres = JSON.parse(contenu_fichier);
 
 	// ON VERIFIE QUE LE PSEUDO/PASSWORD EXISTE
@@ -43,7 +43,7 @@ var trait = function (req, res, query) {
 	if(trouve === false) {
 		// SI IDENTIFICATION INCORRECTE, ON REAFFICHE PAGE ACCUEIL AVEC ERREUR
 
-		page = fs.readFileSync('../html/modele_accueil.html', 'utf-8');
+		page = fs.readFileSync('html/modele_accueil.html', 'utf-8');
 
 		marqueurs.erreur = "ERREUR : compte ou mot de passe incorrect";
 		marqueurs.pseudo = query.pseudo;
@@ -53,7 +53,7 @@ var trait = function (req, res, query) {
 	} else {
 		// SI IDENTIFICATION OK, ON ENVOIE PAGE ACCUEIL MEMBRE
 
-		page = fs.readFileSync('../html/modele_menu.html', 'UTF-8');
+		page = fs.readFileSync('html/modele_menu.html', 'UTF-8');
 
 		marqueurs.pseudo = query.pseudo;
 		marqueurs.mdp = query.mdp;
@@ -62,7 +62,7 @@ var trait = function (req, res, query) {
 	
 	//SI ON SET DANS LOBBY MULTI 
 	
-	contenu = fs.readFileSync("json/lobbyMulti.json","utf-8");
+	contenu = fs.readFileSync("data/lobbyMulti.json","utf-8");
 	list = JSON.parse(contenu);
 
 	for (i=0;i<list.length;i++){
@@ -72,7 +72,7 @@ var trait = function (req, res, query) {
 	}
 	
 	list = JSON.stringify(list);
-	fs.writeFileSync("json/lobbyMulti.json", list , "utf-8");
+	fs.writeFileSync("data/lobbyMulti.json", list , "utf-8");
 
 	res.writeHead(200, {'Content-Type': 'text/html'});
 	res.write(page);

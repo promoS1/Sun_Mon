@@ -22,7 +22,7 @@ var trait = function (req, res, query) {
 
 	//ALLER A LA PAGE LOBBY MULTI
 
-	page = fs.readFileSync ('../html/modele_lobby_multi.html', 'utf-8');
+	page = fs.readFileSync ('html/modele_lobby_multi.html', 'utf-8');
 
 	marqueurs = {};
 	marqueurs.erreurs ="";
@@ -34,12 +34,12 @@ var trait = function (req, res, query) {
 	mdp = query.mdp;
 	
 		//inscription dadns liste des dispo
-	contenu = fs.readFileSync("json/lobbyMulti.json" , "utf-8")
+	contenu = fs.readFileSync("data/lobbyMulti.json" , "utf-8")
 	list = JSON.parse(contenu);
 
 
 	inscrit = false;
-	contenu = fs.readFileSync("json/lobbyMulti.json" , "utf-8")
+	contenu = fs.readFileSync("data/lobbyMulti.json" , "utf-8")
 	multi = JSON.parse(contenu);
 	
 	
@@ -54,7 +54,7 @@ var trait = function (req, res, query) {
 	if (inscrit === false){
 		multi.push(nom);
 		multi = JSON.stringify(multi);
-		fs.writeFileSync("json/lobbyMulti.json", multi , "utf-8");
+		fs.writeFileSync("data/lobbyMulti.json", multi , "utf-8");
 	}
 
 
@@ -72,7 +72,7 @@ var trait = function (req, res, query) {
 
 	//check liste invite
 
-	contenu = fs.readFileSync("json/invitation.json", "utf-8");
+	contenu = fs.readFileSync("data/invitation.json", "utf-8");
 	listInvite = JSON.parse(contenu);
 	for(i=0; i<listInvite.length; i++){
 			console.log("liste = "+listInvite[i]+"  acheminement = "+i);

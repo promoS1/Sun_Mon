@@ -13,7 +13,7 @@ var trait = function (req, res, query){
 	console.log("abandon");
 	//ALLER A LA PAGE GAGNER
 
-	page = fs.readFileSync('../html/modele_menu.html', 'utf-8');
+	page = fs.readFileSync('html/modele_menu.html', 'utf-8');
 	
 	//Commun a toutes les pages\\
 	marqueurs = {};

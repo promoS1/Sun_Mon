@@ -12,7 +12,7 @@ var trait = function (req, res, query) {
 
 	//ALLER A LA PAGE DU LEADERBOARD
 
-	page = fs.readFileSync ('../html/modele_leaderboard.html', 'utf-8');
+	page = fs.readFileSync ('html/modele_leaderboard.html', 'utf-8');
 
 	marqueurs = {};
 	marqueurs.erreurs ="";

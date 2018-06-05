@@ -21,7 +21,7 @@ var trait = function (req, res, query) {
 
 	// ON LIT LES COMPTES EXISTANTS
 
-	contenu_fichier = fs.readFileSync("membres.json", 'utf-8');    
+	contenu_fichier = fs.readFileSync("data/membres.json", 'utf-8');    
 	listeMembres = JSON.parse(contenu_fichier);
 	
 	// ON TEST SI LES 2 MDP CORRESPONDENT
@@ -50,7 +50,7 @@ console.log("trouve = "+trouve);
 	if(trouve === true) {
 		// SI CREATION PAS OK, ON REAFFICHE PAGE FORMULAIRE AVEC ERREUR
 
-		page = fs.readFileSync('../html/modele_inscription.html', 'utf-8');
+		page = fs.readFileSync('html/modele_inscription.html', 'utf-8');
 
 		marqueurs = {};
 		marqueurs.erreur = "ERREUR : ce compte existe déjà";
@@ -61,7 +61,7 @@ console.log("trouve = "+trouve);
 	
 	// ON RENVOI UNE ERREUR SI LES 2 MDP NE CORRESPONDENT PAS
 	
-	page = fs.readFileSync('../html/modele_inscription.html', 'utf-8');
+	page = fs.readFileSync('html/modele_inscription.html', 'utf-8');
 
 		marqueurs = {};
 		marqueurs.erreur = "ERREUR : Les mots de passe ne correspondent pas";
@@ -84,13 +84,13 @@ console.log("trouve = "+trouve);
 
 		contenu_fichier = JSON.stringify(listeMembres);
 
-		fs.writeFileSync("membres.json", contenu_fichier, 'utf-8');
+		fs.writeFileSync("data/membres.json", contenu_fichier, 'utf-8');
 
 	} 
 	if (trouve === false && mdp_correct === true){	
 		// SI CREATION OK, ON ENVOIE PAGE DE CONFIRMATION
 
-		page = fs.readFileSync('../html/modele_confirmation_inscription.html', 'UTF-8');
+		page = fs.readFileSync('html/modele_confirmation_inscription.html', 'UTF-8');
 
 		marqueurs = {};
 		marqueurs.pseudo = query.pseudo;

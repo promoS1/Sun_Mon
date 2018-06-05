@@ -12,7 +12,7 @@ var trait = function (req, res, query) {
 	
 	// ALLER A LA PAGE SUCCES
 	
-	page = fs.readFileSync('../html/modele_succes.html', 'utf-8');
+	page = fs.readFileSync('html/modele_succes.html', 'utf-8');
 
 	marqueurs = {};
 	marqueurs.erreur = "";

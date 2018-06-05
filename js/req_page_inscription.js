@@ -10,7 +10,7 @@ var trait = function (req, res, query) {
 
 	// AFFICHAGE DE LA modele_page_inscription
 
-	page = fs.readFileSync('../html/modele_inscription.html', 'utf-8');
+	page = fs.readFileSync('html/modele_inscription.html', 'utf-8');
 
 	marqueurs = {};
 	marqueurs.erreur = "";

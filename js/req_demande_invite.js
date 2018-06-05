@@ -26,11 +26,11 @@ var trait = function (req, res, query){
 	marqueurs.invite = query.invite
 	invite = marqueurs.invite;
 
-	page = fs.readFileSync ('../html/modele_demande_hote.html', 'utf-8');
+	page = fs.readFileSync ('html/modele_demande_hote.html', 'utf-8');
 
 	//quitte la liste du lobby
 
-	contenu = fs.readFileSync("json/lobbyMulti.json","utf-8");
+	contenu = fs.readFileSync("data/lobbyMulti.json","utf-8");
 	list = JSON.parse(contenu);
 
 	for (i=0;i<list.length;i++){
@@ -40,10 +40,10 @@ var trait = function (req, res, query){
 	}
 
 	list = JSON.stringify(list);
-	fs.writeFileSync("json/lobbyMulti.json", list , "utf-8");
+	fs.writeFileSync("data/lobbyMulti.json", list , "utf-8");
 	
 	// ajouter linvite a la liste invite
-	contenu = fs.readFileSync("json/invitation.json" , "utf-8");
+	contenu = fs.readFileSync("data/invitation.json" , "utf-8");
 	listInvite = JSON.parse(contenu);
 	
 	console.log(pseudo+" demande " +invite);	
@@ -62,11 +62,11 @@ var trait = function (req, res, query){
 	}
 
 	listInvite = JSON.stringify(listInvite);
-	listInvite = fs.writeFileSync("json/invitation.json", listInvite , "utf-8");
+	listInvite = fs.writeFileSync("data/invitation.json", listInvite , "utf-8");
 
 	//renvoi vers la parti si l'invite a accepter
 	
-	contenu = fs.readFileSync("json/accepter.json" , "utf-8");
+	contenu = fs.readFileSync("data/accepter.json" , "utf-8");
 	listAccepter = JSON.parse(contenu);
 	
 				console.log ("cbt accepter donc list accepter = "+listAccepter);
@@ -79,22 +79,22 @@ var trait = function (req, res, query){
 
 				console.log ("cbt accepter donc list accepter = "+listAccepter);
 				listAccepter = JSON.stringify(listAccepter);
-				fs.writeFileSync("json/accepter.json", listAccepter, 'utf-8');
+				fs.writeFileSync("data/accepter.json", listAccepter, 'utf-8');
 					
 				
 				console.log("combat accepter");	
 				check = true;
-				page = fs.readFileSync('../html/modele_transition_accepter.html','utf-8');
+				page = fs.readFileSync('html/modele_transition_accepter.html','utf-8');
 			}else if (listAccepter[invite] === false){
 				console.log("combat refusé");	
 				check = true;
-				page = fs.readFileSync('../html/modele_lobby_multi.html','utf-8');
+				page = fs.readFileSync('html/modele_lobby_multi.html','utf-8');
 				marqueurs.refus = "Votre adversaire a refusé le combat , cette grosse timpe ...";
 			}
 		
 	 
   
-	contenu = fs.readFileSync("json/invitation.json", "utf-8");
+	contenu = fs.readFileSync("data/invitation.json", "utf-8");
 	listInvite = JSON.parse(contenu);
 	
 	if (check === true){
@@ -107,7 +107,7 @@ var trait = function (req, res, query){
 		}
 	}
 	listInvite = JSON.stringify(listInvite);
-	listInvite = fs.writeFileSync("json/invitation.json", listInvite , "utf-8"); 
+	listInvite = fs.writeFileSync("data/invitation.json", listInvite , "utf-8"); 
 	
 
 	page = page.supplant(marqueurs);

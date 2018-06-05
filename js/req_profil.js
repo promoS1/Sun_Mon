@@ -10,7 +10,7 @@ var trait = function (req, res, query) {
 
 	// AFFICHAGE DE LA PAGE PROFIL
 
-	page = fs.readFileSync('../html/modele_profil.html', 'utf-8');
+	page = fs.readFileSync('html/modele_profil.html', 'utf-8');
 
 	marqueurs = {};
 	marqueurs.erreur = "";

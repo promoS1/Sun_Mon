@@ -9,27 +9,27 @@ var port;
 // DECLARATION DES DIFFERENTS MODULES CORRESPONDANT A CHAQUE ACTION
 //-------------------------------------------------------------------------
 
-var req_connexion = require("./req_connexion.js");
-var req_page_inscription = require("./req_page_inscription.js");
-var req_menu = require("./req_menu.js");
-var req_lobby_multi = require("./req_lobby_multi.js");
-var req_leaderboard = require("./req_leaderboard.js");
-var req_succes = require("./req_succes.js");
-var req_profil = require("./req_profil.js");
-var req_demande_invite = require("./req_demande_invite.js");
-var req_coup = require("./req_coup.js");
-var req_change_pseudo = require("./req_change_pseudo.js");
-var req_change_mdp = require("./req_change_mdp.js");
-var req_refus = require("./req_refus.js");
-var req_accepter = require("./req_accepter.js");
-var req_abandon_solo = require("./req_abandon_solo.js");
-var req_abandon_multi = require("./req_abandon_multi.js");
-var req_inscrire = require("./req_inscrire.js");
-var req_identifier = require("./req_identifier.js");
-var req_statique = require("./req_statique.js");
-var req_erreur = require("./req_erreur.js");
-var req_solo_3x3 = require("./req_solo_3x3.js");
-var req_multi_3x3 = require("./req_multi_3x3.js");
+var req_connexion = require("./js/req_connexion.js");
+var req_page_inscription = require("./js/req_page_inscription.js");
+var req_menu = require("./js/req_menu.js");
+var req_lobby_multi = require("./js/req_lobby_multi.js");
+var req_leaderboard = require("./js/req_leaderboard.js");
+var req_succes = require("./js/req_succes.js");
+var req_profil = require("./js/req_profil.js");
+var req_demande_invite = require("./js/req_demande_invite.js");
+var req_coup = require("./js/req_coup.js");
+var req_change_pseudo = require("./js/req_change_pseudo.js");
+var req_change_mdp = require("./js/req_change_mdp.js");
+var req_refus = require("./js/req_refus.js");
+var req_accepter = require("./js/req_accepter.js");
+var req_abandon_solo = require("./js/req_abandon_solo.js");
+var req_abandon_multi = require("./js/req_abandon_multi.js");
+var req_inscrire = require("./js/req_inscrire.js");
+var req_identifier = require("./js/req_identifier.js");
+var req_statique = require("./js/req_statique.js");
+var req_erreur = require("./js/req_erreur.js");
+var req_solo_3x3 = require("./js/req_solo_3x3.js");
+var req_multi_3x3 = require("./js/req_multi_3x3.js");
 
 //-------------------------------------------------------------------------
 // FONCTION DE CALLBACK APPELLEE POUR CHAQUE REQUETE
