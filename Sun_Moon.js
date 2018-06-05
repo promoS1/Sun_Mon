@@ -30,6 +30,7 @@ var req_statique = require("./js/req_statique.js");
 var req_erreur = require("./js/req_erreur.js");
 var req_solo_3x3 = require("./js/req_solo_3x3.js");
 var req_multi_3x3 = require("./js/req_multi_3x3.js");
+var req_coup_multi = require("./js/req_coup_multi.js");
 
 //-------------------------------------------------------------------------
 // FONCTION DE CALLBACK APPELLEE POUR CHAQUE REQUETE
@@ -111,6 +112,9 @@ var traite_requete = function (req, res) {
 				break;
 			case '/req_multi_3x3':
 				req_multi_3x3(req, res, query);
+				break;
+			case '/req_coup_multi':
+				req_coup_multi_(req, res, query);
 				break;
 
 			default:
