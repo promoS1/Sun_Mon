@@ -43,11 +43,9 @@ var trait = function (req, res, query) {
 
 	contenu = fs.readFileSync("data/"+adversaire+"statMulti.json" , "UTF-8");
 	statAdver = JSON.parse(contenu);
-
-	console.log("multistat.gagne = "+multiStat.gagne);	
 	if (multiStat.gagne === true){
 		page = fs.readFileSync('html/modele_lose_multi.html', "utf-8");
-		marqueurs.gagnant = multiStat[adversaire]
+		marqueurs.gagnant = multiStat.gagnant;
 		marqueurs.scoreGagnant = statAdver.score;
 		console.log("ila a gagner")
 		}
@@ -61,8 +59,6 @@ var trait = function (req, res, query) {
 	contenu = fs.readFileSync("data/"+hote+"VS"+invite+"Multi.json" , "UTF-8");
 	multiStat = JSON.parse(contenu);
 	table = multiStat[nom];
-	console.log("multistat.nom = "+multiStat[nom]);
-	console.log("table = "+table);
 		if (query.cell === "1") {		
 			table[0] = !table[0];
 			table[1] = !table[1];
@@ -138,7 +134,6 @@ var trait = function (req, res, query) {
 		
 		//Effacer le JSON ici 	
 		//creation du json si il n'existe pas deja
-		console.log("Si unedefined json n'existe pas = " +nomStat.total);
 		if(nomStat.total === undefined){
 			nomStat.total = [];	
 			nomStat = JSON.stringify(nomStat);
