@@ -18,24 +18,51 @@ var trait = function (req, res, query) {
 	var invite;
 	var nomStat = {};
 	var multiStat = {};
+	var adversaire;
+	var statAdver = {}
 	page = fs.readFileSync('html/modele_multi_3x3.html', 'utf-8');
 
 	marqueurs = {};
 	marqueurs.erreur = "";
 	marqueurs.pseudo = query.pseudo;
-	marqueurs.mdp = query.mdp;
 	nom = query.pseudo;
 	hote = query.hote;
 	invite = query.invite
+	marqueurs.mdp = query.mdp;
+	marqueurs.hote = hote;
+	marqueurs.invite = invite;
+	
+	if (nom === hote){
+		adversaire = invite;
+	}else if (nom === invite){
+		adversaire = hote;
+	}
+	//check si l'adversaire a deja gagner
+	contenu = fs.readFileSync("data/"+hote+"VS"+invite+"Multi.json" , "UTF-8");
+	multiStat = JSON.parse(contenu);
 
-	contenu = fs.readFileSync("data/"+nom+"Stat.json", "utf-8"); 
+	contenu = fs.readFileSync("data/"+adversaire+"statMulti.json" , "UTF-8");
+	statAdver = JSON.parse(contenu);
+
+	console.log("multistat.gagne = "+multiStat.gagne);	
+	if (multiStat.gagne === true){
+		page = fs.readFileSync('html/modele_lose_multi.html', "utf-8");
+		marqueurs.gagnant = multiStat[adversaire]
+		marqueurs.scoreGagnant = statAdver.score;
+		console.log("ila a gagner")
+		}
+	//augmentation du score
+	contenu = fs.readFileSync("data/"+nom+"statMulti.json", "utf-8"); 
 	nomStat = JSON.parse(contenu);
 	nomStat.score += 1;
 	marqueurs.score = nomStat.score;
+
+	/////
 	contenu = fs.readFileSync("data/"+hote+"VS"+invite+"Multi.json" , "UTF-8");
 	multiStat = JSON.parse(contenu);
 	table = multiStat[nom];
-
+	console.log("multistat.nom = "+multiStat[nom]);
+	console.log("table = "+table);
 		if (query.cell === "1") {		
 			table[0] = !table[0];
 			table[1] = !table[1];
@@ -106,14 +133,12 @@ var trait = function (req, res, query) {
 		
 		contenu = fs.readFileSync("data/"+hote+"VS"+invite+"Multi.json" , "UTF-8");
 		multiStat = JSON.parse(contenu);
-		multiStat[gagne] = true;
-		multiStat[gagnant] = nom;
-		multiStat = JSON.stringify(multiStat);
-		fs.writeFileSync("data/"+hote+"VS"+invite+"Multi.json" , "UTF-8");
+		multiStat.gagne = true;
+		multiStat.gagnant = nom;
 		
 		//Effacer le JSON ici 	
-
-		console.log(nomStat.total);
+		//creation du json si il n'existe pas deja
+		console.log("Si unedefined json n'existe pas = " +nomStat.total);
 		if(nomStat.total === undefined){
 			nomStat.total = [];	
 			nomStat = JSON.stringify(nomStat);
@@ -125,16 +150,19 @@ var trait = function (req, res, query) {
 		nomStat.total.push(nomStat.score);
 	}
 	multiStat = JSON.stringify(multiStat);
-	fs.writeFileSync("data/"+hote+"VS"+invite+"Multi.json", [table], 'utf-8');
+	fs.writeFileSync("data/"+hote+"VS"+invite+"Multi.json", multiStat, 'utf-8');
 	
 	nomStat = JSON.stringify(nomStat);
 	fs.writeFileSync("data/"+nom+"statMulti.json", nomStat, "utf-8")
 
+
+				//creation des marqueurs
+				
 	contenu = fs.readFileSync("data/"+hote+"VS"+invite+"Multi.json" , "UTF-8");
-	list = JSON.parse(contenu);
+	multiStat = JSON.parse(contenu);
 	list = multiStat[nom];
 	
-	
+		
 	
 	if(list[0] === false) {
 		marqueurs.c1 = "Lune.png";

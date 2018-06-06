@@ -19,8 +19,13 @@ var trait = function (req, res, query) {
 	var listAccepter = {};
 	var hote;
 	var invite;
+	var nomStat = {};
 	pseudo = query.pseudo;
 
+	//ajout du dossier nomstat.json
+	nomStat.score = 0 ;
+	nomStat = JSON.stringify(nomStat);
+	fs.writeFileSync("data/"+pseudo+"statMulti.json" , nomStat, "utf-8");
 
 	//Aller a la page du jeu
 

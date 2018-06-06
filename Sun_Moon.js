@@ -114,7 +114,7 @@ var traite_requete = function (req, res) {
 				req_multi_3x3(req, res, query);
 				break;
 			case '/req_coup_multi':
-				req_coup_multi_(req, res, query);
+				req_coup_multi(req, res, query);
 				break;
 
 			default:
