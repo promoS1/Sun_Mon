@@ -1,8 +1,14 @@
 body {
 	background-color:white;
-	background-image:
+	background-image:url("../images/Lune.jpg");
+	background-repeat:no-repeat;
+	background-position:center top;
 }
 
 #blue {
 	color:blue;
+}
+
+#white {
+	color:white;
 }

@@ -4,6 +4,7 @@
 <head>
 	<title>Menu</title>
 	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -11,7 +12,9 @@
 		<input type="submit" value="Déconnexion">
 	</form>
 	<p>
+	<span id="white">
 	{pseudo}
+	</span>
 	<p>
 	<form action="/req_profil" method="GET">
 		<input type="hidden" name="pseudo" value={pseudo}>
@@ -19,7 +22,9 @@
 		<input type="submit" value="Mon Profil">
 	</form>
 	<p>
+	<span id="blue">
 	Menu
+	</span>
 	<p>
 	<form action="/req_succes" method="GET">
 		<input type="hidden" name="pseudo" value={pseudo}>
@@ -43,7 +48,9 @@
 		<input type="submit" value="Multijoueur">
 	</form>
 	<p>
+	<span id="white">
 	{abandon}
+	</span>
 </body>
 
 </html>
