@@ -23,17 +23,17 @@ var trait = function (req, res, query) {
 	pseudo = query.pseudo;
 
 	//ajout du dossier nomstat.json
-	if (fs.readFileSync("data/"+pseudo+"statMulti.json" , "utf-8") === undefined) {
+	if (fs.readFileSync("data/"+pseudo+"StatMulti.json" , "utf-8") === undefined) {
 	
 
 	nomStat = JSON.stringify(nomStat);
-	fs.writeFileSync("data/"+pseudo+"statMulti.json" , nomStat, "utf-8");
+	fs.writeFileSync("data/"+pseudo+"StatMulti.json" , nomStat, "utf-8");
 	}
-	contenu = fs.readFileSync("data/"+pseudo+"statMulti.json" , "utf-8"
+	contenu = fs.readFileSync("data/"+pseudo+"StatMulti.json" , "utf-8");
 	nomStat = JSON.parse(contenu);
 	nomStat.score = 0 ;
 	nomStat = JSON.stringify(nomStat);
-	fs.writeFileSync("data/"+pseudo+"statMulti.json" , nomStat, "utf-8");
+	fs.writeFileSync("data/"+pseudo+"StatMulti.json" , nomStat, "utf-8");
 	
 	//Aller a la page du jeu
 

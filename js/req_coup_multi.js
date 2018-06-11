@@ -41,7 +41,7 @@ var trait = function (req, res, query) {
 	contenu = fs.readFileSync("data/"+hote+"VS"+invite+"Multi.json" , "UTF-8");
 	multiStat = JSON.parse(contenu);
 
-	contenu = fs.readFileSync("data/"+adversaire+"statMulti.json" , "UTF-8");
+	contenu = fs.readFileSync("data/"+adversaire+"StatMulti.json" , "UTF-8");
 	statAdver = JSON.parse(contenu);
 	if (multiStat.gagne === true){
 		page = fs.readFileSync('html/modele_lose_multi.html', "utf-8");
@@ -50,7 +50,7 @@ var trait = function (req, res, query) {
 		console.log("ila a gagner")
 		}
 	//augmentation du score
-	contenu = fs.readFileSync("data/"+nom+"statMulti.json", "utf-8"); 
+	contenu = fs.readFileSync("data/"+nom+"StatMulti.json", "utf-8"); 
 	nomStat = JSON.parse(contenu);
 	nomStat.score += 1;
 	marqueurs.score = nomStat.score;
@@ -134,7 +134,7 @@ var trait = function (req, res, query) {
 				
 		// incrementation nombre de win 
 		
-		contenu = fs.readFileSync("data/"+nom+"statMulti.json", "utf-8"); 
+		contenu = fs.readFileSync("data/"+nom+"StatMulti.json", "utf-8"); 
 		nomStat = JSON.parse(contenu);
 		if (nomStat.win === undefined ){
 			nomStat.win = 0;
@@ -148,8 +148,8 @@ var trait = function (req, res, query) {
 		if(nomStat.total === undefined){
 			nomStat.total = [];	
 			nomStat = JSON.stringify(nomStat);
-			fs.writeFileSync("data/"+nom+"statMulti.json", nomStat, "utf-8")
-			contenu = fs.readFileSync("data/"+nom+"statMulti.json", "utf-8"); 
+			fs.writeFileSync("data/"+nom+"StatMulti.json", nomStat, "utf-8")
+			contenu = fs.readFileSync("data/"+nom+"StatMulti.json", "utf-8"); 
 			nomStat = JSON.parse(contenu);
 		}
 		
@@ -159,7 +159,7 @@ var trait = function (req, res, query) {
 	fs.writeFileSync("data/"+hote+"VS"+invite+"Multi.json", multiStat, 'utf-8');
 	
 	nomStat = JSON.stringify(nomStat);
-	fs.writeFileSync("data/"+nom+"statMulti.json", nomStat, "utf-8")
+	fs.writeFileSync("data/"+nom+"StatMulti.json", nomStat, "utf-8")
 
 
 				//creation des marqueurs
