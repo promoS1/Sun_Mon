@@ -10,6 +10,7 @@ var trait = function (req, res, query) {
 	var mdp;
 	var page;
 
+
 	//ALLER A LA PAGE DU LEADERBOARD
 
 	page = fs.readFileSync ('html/modele_leaderboard.html', 'utf-8');
@@ -19,6 +20,10 @@ var trait = function (req, res, query) {
 
 	marqueurs.pseudo = query.pseudo;
 	marqueurs.mdp = query.mdp;
+	pseudo = query.pseudo;
+	
+	
+
 
 	page = page.supplant(marqueurs);
 	res.writeHead(200, {'Content-Type': 'text/html'});

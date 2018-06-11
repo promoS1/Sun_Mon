@@ -131,9 +131,20 @@ var trait = function (req, res, query) {
 		multiStat = JSON.parse(contenu);
 		multiStat.gagne = true;
 		multiStat.gagnant = nom;
+				
+		// incrementation nombre de win 
 		
+		contenu = fs.readFileSync("data/"+nom+"statMulti.json", "utf-8"); 
+		nomStat = JSON.parse(contenu);
+		if (nomStat.win === undefined ){
+			nomStat.win = 0;
+		}
+		nomStat.win += 1;
+
 		//Effacer le JSON ici 	
-		//creation du json si il n'existe pas deja
+		
+		
+		//creation du json perso si il n'existe pas deja
 		if(nomStat.total === undefined){
 			nomStat.total = [];	
 			nomStat = JSON.stringify(nomStat);

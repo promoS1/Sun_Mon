@@ -23,6 +23,7 @@ var trait = function (req, res, query) {
 	pseudo = query.pseudo;
 
 	//ajout du dossier nomstat.json
+	console.log("aaaaaaaaaaaaaaaaaaaaaaaaaa"+fs.readFileSync("data/"+pseudo+"statMulti.json" , nomStat, "utf-8"));
 	nomStat.score = 0 ;
 	nomStat = JSON.stringify(nomStat);
 	fs.writeFileSync("data/"+pseudo+"statMulti.json" , nomStat, "utf-8");
