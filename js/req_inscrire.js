@@ -18,11 +18,19 @@ var trait = function (req, res, query) {
 	var i;
 	var trouve;
 	var mdp_correct;
+	var mdp_taille;
 
 	// ON LIT LES COMPTES EXISTANTS
 
 	contenu_fichier = fs.readFileSync("data/membres.json", 'utf-8');    
 	listeMembres = JSON.parse(contenu_fichier);
+	
+	// ON VERIFIE QUE LE MDP A PLUS DE 8 CARACTERES
+	mdp_taille=true;
+	if (mdp.length < 7) {
+		mdp_taille=false;
+		console.log(mdp[1]);
+	}
 	
 	// ON TEST SI LES 2 MDP CORRESPONDENT
 	
@@ -57,14 +65,14 @@ console.log("trouve = "+trouve);
 		marqueurs.pseudo = query.pseudo;
 		page = page.supplant(marqueurs);
 
-	} else	if ( mdp_correct === false ) {
+	} else	if ( mdp_correct === false || mdp_taille === false) {
 	
 	// ON RENVOI UNE ERREUR SI LES 2 MDP NE CORRESPONDENT PAS
 	
 	page = fs.readFileSync('html/modele_inscription.html', 'utf-8');
 
 		marqueurs = {};
-		marqueurs.erreur = "ERREUR : Les mots de passe ne correspondent pas";
+		marqueurs.erreur = "ERREUR : Les mots de passe ne correspondent pas ou ne comporte pas 8 caractères ou plus.";
 		marqueurs.pseudo = query.pseudo;
 		page = page.supplant(marqueurs);
 
@@ -76,7 +84,7 @@ console.log("trouve = "+trouve);
 	// SI AUCUNE ERREUR, ON AJOUTE LE NOUVEAU COMPTE DANS LA LISTE DES COMPTES
 	
 
- 	if(trouve === false) {
+ 	if(trouve === false && mdp_correct === true && mdp_taille === true) {
 		Membre = {};
 		Membre.pseudo = query.pseudo;
 		Membre.mdp = query.mdp;
@@ -87,7 +95,7 @@ console.log("trouve = "+trouve);
 		fs.writeFileSync("data/membres.json", contenu_fichier, 'utf-8');
 
 	} 
-	if (trouve === false && mdp_correct === true){	
+	if (trouve === false && mdp_correct === true && mdp_taille === true){	
 		// SI CREATION OK, ON ENVOIE PAGE DE CONFIRMATION
 
 		page = fs.readFileSync('html/modele_confirmation_inscription.html', 'UTF-8');

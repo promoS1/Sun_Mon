@@ -79,7 +79,7 @@ var trait = function (req, res, query) {
 			console.log("liste = "+listInvite[i]+"  acheminement = "+i);
 		if (nom === listInvite[i]){
 			hote = listInvite[i+1];
-			marqueurs.invitation = "invitation de "+hote+" recu <a href=\"req_multi_3x3?pseudo="+nom+"&mdp="+mdp+"&hote="+hote+"&invite="+nom+"\"><input type=\"button\" value=\"Accepter\"/></a></br>";
+			marqueurs.invitation = "Invitation de "+hote+" reçu <a href=\"req_multi_3x3?pseudo="+nom+"&mdp="+mdp+"&hote="+hote+"&invite="+nom+"\"><input type=\"button\" value=\"Accepter\"/></a></br>";
 		}
 	}
 
