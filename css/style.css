@@ -18,4 +18,12 @@ body {
 
 #txtcenter {
 	text-align:center;
-}	
+}
+#fontsize {
+	font-size: large;
+}
+#test {
+	color:red;
+	font-size:large;
+	text-align:center;
+}
