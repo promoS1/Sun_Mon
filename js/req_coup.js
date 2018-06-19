@@ -97,18 +97,27 @@ var trait = function (req, res, query) {
 
 	table = JSON.stringify(table);
 	if (table === "[true,true,true,true,true,true,true,true,true]"){
-		page = fs.readFileSync('html/modele_win_solo.html', 'utf-8');	
-	
+		page = fs.readFileSync('html/modele_win_solo.html', 'utf-8');		
 		console.log(nomStat.total);
-		if(nomStat.total === undefined){
-			nomStat.total = [];	
+		contenu = fs.readFileSync("data/"+nom+"Stat.json", "utf-8"); 
+		nomStat = JSON.parse(contenu);
+		if(nomStat.partie === undefined){
+			nomStat.partie = 0;	
 			nomStat = JSON.stringify(nomStat);
-			fs.writeFileSync("data/"+nom+"Stat.json", nomStat, "utf-8")
+			fs.writeFileSync("data/"+nom+"Stat.json", nomStat, "utf-8");
 			contenu = fs.readFileSync("data/"+nom+"Stat.json", "utf-8"); 
 			nomStat = JSON.parse(contenu);
 		}
-		
-		nomStat.total.push(nomStat.score);
+		if(nomStat.total === undefined){
+			nomStat.total = 0;	
+			nomStat = JSON.stringify(nomStat);
+			fs.writeFileSync("data/"+nom+"Stat.json", nomStat, "utf-8");
+			contenu = fs.readFileSync("data/"+nom+"Stat.json", "utf-8"); 
+			nomStat = JSON.parse(contenu);
+		}
+		nomStat.partie++;
+		nomStat.score += 1;
+		nomStat.total += nomStat.score;
 	}
 	fs.writeFileSync("data/"+nom+"3x3.json", [table], 'utf-8');
 	
