@@ -9,7 +9,10 @@ var trait = function (req, res, query) {
 	var pseudo;
 	var mdp;
 	var page;
-
+	var contenu;
+	var i ; 			//COMPTEUR BOUCLE FOR
+	var membre = [];
+	var stat = [];
 
 	//ALLER A LA PAGE DU LEADERBOARD
 
@@ -21,8 +24,12 @@ var trait = function (req, res, query) {
 	marqueurs.pseudo = query.pseudo;
 	marqueurs.mdp = query.mdp;
 	pseudo = query.pseudo;
-	
-	
+	//LIASON DES MEMBRES ET DE LEURS STATS
+
+
+	//ALGORITHME DE TRI
+
+
 
 
 	page = page.supplant(marqueurs);
