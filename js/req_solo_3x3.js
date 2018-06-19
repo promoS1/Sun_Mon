@@ -28,6 +28,17 @@ var trait = function (req, res, query) {
 	marqueurs.score=0;
 	///////
 
+	try {
+	
+	contenu = fs.readFileSync("data/"+pseudo+"Stat.json" , "utf-8");
+	
+	}catch(e){
+	nomStat = JSON.stringify(nomStat);
+	fs.writeFileSync("data/"+pseudo+"Stat.json" , nomStat, "utf-8");
+	}
+
+	contenu = fs.readFileSync("data/"+pseudo+"Stat.json" , "utf-8");
+	nomStat= JSON.parse(contenu);
 	nomStat.score = 0;
 	nomStat = JSON.stringify(nomStat);
 	fs.writeFileSync("data/"+nom+"Stat.json", nomStat, "utf-8");
