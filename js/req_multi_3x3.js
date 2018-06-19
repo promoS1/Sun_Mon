@@ -21,7 +21,7 @@ var trait = function (req, res, query) {
 	var invite;
 	var nomStat = {};
 	pseudo = query.pseudo;
-
+	nom = pseudo;
 	//ajout du dossier nomstat.json
 	
 	try {
