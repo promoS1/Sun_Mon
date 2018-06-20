@@ -14,6 +14,7 @@ var trait = function (req, res, query) {
 	var total;
 	var partie;
 	var moyenne;
+	var winMulti;
 	// AFFICHAGE DE LA PAGE PROFIL
 
 	page = fs.readFileSync('html/modele_profil.html', 'utf-8');
@@ -28,13 +29,18 @@ var trait = function (req, res, query) {
 	partie = nomStat.partie;
 	moyenne = 0;
 	moyenne = total/partie;
-	console.log(moyenne);
+
+	contenu = fs.readFileSync("data/"+nom+"StatMulti.json","utf-8");
+	statMulti = JSON.parse(contenu);
+	winMulti = 0;
+	winMulti = statMulti.win;
 
 	marqueurs = {};
 	marqueurs.erreur = "";
 	marqueurs.pseudo = query.pseudo;
 	marqueurs.mdp = query.mdp;
 	marqueurs.moyennecoups = moyenne;
+	marqueurs.multiwin = winMulti;
 
 	page = page.supplant(marqueurs);
 	res.writeHead(200, {'Content-Type': 'text/html'});

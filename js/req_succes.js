@@ -56,7 +56,7 @@ var trait = function (req, res, query) {
 	} else {
 		marqueurs.succes_6 = "A obtenir";
 	}
-	if (partie >= 666212213214) {
+	if (partie >= 10000) {
 		marqueurs.succes_7 = "Obtenu";
 	} else {
 		marqueurs.succes_7 = "A obtenir";
