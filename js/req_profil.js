@@ -43,7 +43,7 @@ var trait = function (req, res, query) {
 	
 	for(i=0; i<list.length;i++) {
 		if (nom === list[i].pseudo) {
-			rank = list.length+1;
+			rank = i+1;
 		}
 		console.log("Rang : "+rank);
 	}
@@ -55,6 +55,10 @@ var trait = function (req, res, query) {
 	marqueurs.moyennecoups = moyenne;
 	marqueurs.multiwin = winMulti;
 	marqueurs.rank = rank;
+	
+	if (partie === undefined) {
+		marqueurs.moyennecoups = "0 partie joué";
+	}
 
 	page = page.supplant(marqueurs);
 	res.writeHead(200, {'Content-Type': 'text/html'});
