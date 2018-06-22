@@ -14,6 +14,7 @@ var trait = function (req, res, query) {
 	var membre = [] ;
 	var stat;
 	var list = [];
+	var nom;
 	//ALLER A LA PAGE DU LEADERBOARD
 
 	page = fs.readFileSync ('html/modele_leaderboard.html', 'utf-8');
@@ -24,6 +25,7 @@ var trait = function (req, res, query) {
 	marqueurs.pseudo = query.pseudo;
 	marqueurs.mdp = query.mdp;
 	pseudo = query.pseudo;
+	nom = pseudo;
 
 	//LIASON DES MEMBRES ET DE LEURS STATS
 	contenu = fs.readFileSync("data/membres.json" , "utf-8");
@@ -83,6 +85,11 @@ for(x=1; x<list.length;x++){
 
 	marqueurs.rank5 = list[4].pseudo
 	marqueurs.multiwin5 = list[4].stat
+	
+	//ECRITURE JSON LEADERBOARD
+
+	list = JSON.stringify(list);
+	fs.writeFileSync("data/leaderboard.json" , list , "utf-8");
 
 	page = page.supplant(marqueurs);
 	res.writeHead(200, {'Content-Type': 'text/html'});
