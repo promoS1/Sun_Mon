@@ -15,6 +15,9 @@ var trait = function (req, res, query) {
 	var partie;
 	var moyenne;
 	var winMulti;
+	var list = [];
+	var i;
+	var rank;
 	// AFFICHAGE DE LA PAGE PROFIL
 
 	page = fs.readFileSync('html/modele_profil.html', 'utf-8');
@@ -34,13 +37,24 @@ var trait = function (req, res, query) {
 	statMulti = JSON.parse(contenu);
 	winMulti = 0;
 	winMulti = statMulti.win;
-
+	
+	contenu = fs.readFileSync("data/leaderboard.json", "utf-8");
+	list = JSON.parse(contenu);
+	
+	for(i=0; i<list.length;i++) {
+		if (nom === list[i].pseudo) {
+			rank = list.length+1;
+		}
+		console.log("Rang : "+rank);
+	}
+	
 	marqueurs = {};
 	marqueurs.erreur = "";
 	marqueurs.pseudo = query.pseudo;
 	marqueurs.mdp = query.mdp;
 	marqueurs.moyennecoups = moyenne;
 	marqueurs.multiwin = winMulti;
+	marqueurs.rank = rank;
 
 	page = page.supplant(marqueurs);
 	res.writeHead(200, {'Content-Type': 'text/html'});
