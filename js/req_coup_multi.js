@@ -47,6 +47,7 @@ var trait = function (req, res, query) {
 		page = fs.readFileSync('html/modele_lose_multi.html', "utf-8");
 		marqueurs.gagnant = multiStat.gagnant;
 		marqueurs.scoreGagnant = statAdver.score;
+		marqueurs.scoreGagnant++;
 		console.log("ila a gagner")
 		}
 	//augmentation du score

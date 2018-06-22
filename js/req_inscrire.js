@@ -53,7 +53,7 @@ var trait = function (req, res, query) {
 		i++;
 	}
 
-console.log("trouve = "+trouve);
+	console.log("trouve = "+trouve);
 	// ON RENVOIT UNE PAGE HTML 
 	if(trouve === true) {
 		// SI CREATION PAS OK, ON REAFFICHE PAGE FORMULAIRE AVEC ERREUR
@@ -96,6 +96,12 @@ console.log("trouve = "+trouve);
 
 	} 
 	if (trouve === false && mdp_correct === true && mdp_taille === true){	
+		var stat={};
+		var statmulti={};
+		stat=JSON.stringify(stat);
+		statmulti=JSON.stringify(statmulti);
+		fs.writeFileSync("data/"+query.pseudo+"Stat.json",stat,"UTF-8")	
+		fs.writeFileSync("data/"+query.pseudo+"StatMulti.json",statmulti,"UTF-8")	
 		// SI CREATION OK, ON ENVOIE PAGE DE CONFIRMATION
 
 		page = fs.readFileSync('html/modele_confirmation_inscription.html', 'UTF-8');
