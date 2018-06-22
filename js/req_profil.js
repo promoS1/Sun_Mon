@@ -55,7 +55,9 @@ var trait = function (req, res, query) {
 	marqueurs.moyennecoups = moyenne;
 	marqueurs.multiwin = winMulti;
 	marqueurs.rank = rank;
-	
+	if (marqueurs.multiwin === undefined) {
+		marqueurs.multiwin = "0";
+	}
 	if (partie === undefined) {
 		marqueurs.moyennecoups = "0 partie joué";
 	}
