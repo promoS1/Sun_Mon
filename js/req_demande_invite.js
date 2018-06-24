@@ -56,7 +56,7 @@ var trait = function (req, res, query){
 		}
 	}	
 	if (trouve === false){
-
+		console.log(listInvite);
 			console.log(pseudo + " invite "+ invite+" et trouve = "+trouve);
 		listInvite.push(invite);
 		listInvite.push(pseudo);
