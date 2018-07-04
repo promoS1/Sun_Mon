@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 [{"pseudo":"Alicia","stat":8},{"pseudo":"Bob","stat":5},{"pseudo":"Julien","stat":5},{"pseudo":"Alexis","stat":4},{"pseudo":"Victoria","stat":1}]
+=======
+[{"pseudo":"Alexis","stat":1},{"pseudo":"Victoria","stat":0},{"pseudo":"Bob","stat":0},{"pseudo":"Alicia","stat":0},{"pseudo":"Julien","stat":0}]
+>>>>>>> fb2d74d5c633c6463087e9a3aa16aec530df60a2

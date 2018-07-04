@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"gagne":true,"Alexis":[true,true,true,true,true,false,true,false,false],"Julien":[false,true,true,true,false,true,false,false,true],"gagnant":"Alexis"}
+=======
+{"gagne":true,"Alexis":[true,false,false,true,true,false,true,true,true],"Julien":[true,true,true,true,false,true,false,false,true],"gagnant":"Alexis"}
+>>>>>>> fb2d74d5c633c6463087e9a3aa16aec530df60a2
