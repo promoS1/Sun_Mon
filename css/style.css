@@ -1,24 +1,54 @@
 body {
-	background-color:white;
-	background-image:url("../images/Lune.jpg");
+	background-color:#99CCFF;
+	background-image:url("../images/Logo.png");
 	background-repeat:no-repeat;
 	background-position:center top;
 }
-
-#blue {
-	color:blue;
+h1 {
+	font-size:300%;
+	font-family:impact;
 }
-#red {
-	color:red;
+h2 {
+	font-size:200%;
 }
-
-#white {
-	color:white;
+h3 {
+	font-size:120%;
+	color: gray;
 }
-
-#txtcenter {
+span {
 	text-align:center;
 }
-#fontsize {
-	font-size: large;
+h4 {
+	color: red;
+	font-size:110%;
+}
+div {
+	width: 70%;
+	margin: auto;
+	color: black;
+	font-family:Verdana;
+}
+.button {
+	background-color: #4CAF50; /* Green */
+	border: none;
+	color: white;
+	padding: 8px 16px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;		
+	-webkit-transition-duration: 0.4s; /* Safari */
+	transition-duration: 0.4s;
+	cursor: pointer;
+}
+
+.button1 {
+	background-color: white; 
+	color: gray; 
+	border: 2px solid #555555;
+}
+.button1:hover {
+	background-color: #555555;
+	color: white;
 }

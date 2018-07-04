@@ -16,39 +16,35 @@
 		<input type="hidden" name="mdp" value={mdp}>
 		<input type="submit" value="Mon Profil">
 	</form>
-	<br>
 	<span id="white">{pseudo}</span>
 	<span id="txtcenter">
-	<p>
-	<span id="red"><span id="fontsize">Menu</span></span>
+	<h2>Menu</h2>
 	<p>
 	<form action="/req_succes" method="GET">
 		<input type="hidden" name="pseudo" value={pseudo}>
 		<input type="hidden" name="mdp" value={mdp}>
-		<input type="submit" value="Succès">
+		<button class="button button1">Succès</button>
 	</form>
 	<p>
 	<form action="/req_leaderboard" method="GET">
 		<input type="hidden" name="pseudo" value={pseudo}>
 		<input type="hidden" name="mdp" value={mdp}>
-		<input type="submit" value="Leaderboard">
+		<button class="button button1">Leaderboard</button>
 	</form>
-	<p>
-	<span id="red"><span id="fontsize">Jouer</span></span>
 	<p>
 	<form action="/req_solo_3x3" method="GET">
 		<input type="hidden" name="pseudo" value={pseudo}>
 		<input type="hidden" name="mdp" value={mdp}>
-		<input type="submit" value="Partie solo">
+		<button class="button button1">Partie solo</button>
 	</form>
 	<p>
 	<form action="/req_lobby_multi" method="GET">
 		<input type="hidden" name="pseudo" value={pseudo}>
 		<input type="hidden" name="mdp" value={mdp}>	
-		<input type="submit" value="Partie multi">
+		<button class="button button1">Partie multi</button>
 	</form>
 	<p>
-	<span id="red">
+	<span id="black">
 	{abandon}
 	</span>
 	</span>

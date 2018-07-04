@@ -9,43 +9,19 @@
 </head>
 
 <body>
-		<span id="red">
-		<span id="txtcenter">
+		<span>
+		<p><h1>Sun & Moon</h1></p>
 		<p>
-		Accueil
-		<p>
-		Règles
-		</span>
-		</span>
-		<p>
-		<span id="white">Le jeu du soleil/lune est un casse tête. Il se base sur une grille de 3x3 dans laquelle chaque case contient un soleil ou une lune générés aléatoirement. Le but étant de remplir l'intégralité de la grille de soleil. En cliquant sur une case, elle-même et les cases adjacentes inversent leur état.
-		</span>
-		<p>
-		<span id="red">
-		<span id="txtcenter">
-		Connexion
-		</span>
-		</span>
+		<div>Le jeu du soleil/lune est un casse tête. Il se base sur une grille de 3x3 dans laquelle chaque case contient un soleil ou une lune générés aléatoirement. Le but étant de remplir l'intégralité de la grille de soleil. En cliquant sur une case, elle-même et les cases adjacentes inversent leur état.</div>
+		</p>
+		<p><h2>Connexion</h2></p>
 		<form action="/req_identifier" method="GET">
-			<span id="white">Identifiant : </span><input type="text" name="pseudo"><br>
-			<span id="white">Mot de passe : </span><input type="password" name="mdp"><p>
-			<input type="submit" value="Connexion"><p>
+			Identifiant : <input type="text" name="pseudo"><br>
+			Mot de passe : <input type="password" name="mdp">
+			<p><button class="button button1">Connexion</button></p>
 		</form>
-		<span id="blue">
-		<span id="txtcenter">
-		<p>
-		Pas encore inscrit?
-		</span>
-		</span>
-		<p>
-		<form action="/req_page_inscription" method="GET">
-			<input type="submit" value="Inscription">
-		</form>
-		<p>
-		<span id="txtcenter">
-		<span id="red">
-		{erreur}
-		</span>
+		<p><a href = "/req_page_inscription">Pas encore inscrit?</a></p>
+		<h4>{erreur}</h4><br><br><br><br><br><br><br>
 		</span>
 </body>
 
