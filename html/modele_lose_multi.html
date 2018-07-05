@@ -11,13 +11,14 @@
 	<form action="/req_identifier" method="GET">
 		<input type="hidden" name="pseudo" value={pseudo}>
 		<input type="hidden" name="mdp" value={mdp}>
-		<input type="submit" value="Retour au menu">
+		<button class="button button1">Retour au menu</button>
 	</form>
+	<br><br><br><br><br><br>
 	<span id="txtcenter">
 	<p>
 	<span id="white">Vous avez perdu!</span>
 	<p>
-	<span id="white">Le gagnant est {gagnant} avec un nombre de coup de {scoreGagnant}</span>
+	<span id="white">Gagnant : {gagnant} & Nombre de coup : {scoreGagnant}</span>
 	<p>
 	<span id="white">Votre nombre de coups = {score}</span>
 	<p>

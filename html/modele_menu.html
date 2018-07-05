@@ -9,17 +9,17 @@
 
 <body>
 	<form action="/req_connexion" method="GET">
-		<input type="submit" value="Déconnexion">
+		<button class="button button1">Déconnexion</button>
 	</form>
 	<form action="/req_profil" method="GET">
 		<input type="hidden" name="pseudo" value={pseudo}>
 		<input type="hidden" name="mdp" value={mdp}>
-		<input type="submit" value="Mon Profil">
+		<button class="button button1">Mon Profil</button>
 	</form>
-	<span id="white">{pseudo}</span>
 	<span id="txtcenter">
+	<br><br><br>
 	<h2>Menu</h2>
-	<p>
+	<br><br><br>
 	<form action="/req_succes" method="GET">
 		<input type="hidden" name="pseudo" value={pseudo}>
 		<input type="hidden" name="mdp" value={mdp}>

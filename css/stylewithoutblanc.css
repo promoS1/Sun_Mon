@@ -20,13 +20,13 @@ span {
 }
 h4 {
 	color: red;
-	font-size:110%;
+    font-size:110%;
 }
 div {
 	width: 70%;
 	margin: auto;
 	color: black;
-	font-family:Verdana;
+    font-family:Verdana;
 }
 .button {
 	background-color: #4CAF50; /* Green */
@@ -37,26 +37,19 @@ div {
 	text-decoration: none;
 	display: inline-block;
 	font-size: 16px;
-	margin: 4px 2px;		
+	margin: 4px 2px;
 	-webkit-transition-duration: 0.4s; /* Safari */
 	transition-duration: 0.4s;
 	cursor: pointer;
 }
 
 .button1 {
-	background-color: white; 
-	color: gray; 
+	background-color: white;
+	color: gray;
 	border: 2px solid #555555;
 }
+
 .button1:hover {
-	background-color: #555555;
+    background-color: #555555;
 	color: white;
-}
-
-td {
-    border-bottom: 1px solid #ddd;
-}
-
-tr:nth-child(even) {
-	background-color: #f2f2f2;
 }
